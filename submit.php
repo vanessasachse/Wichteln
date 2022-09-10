@@ -3,23 +3,50 @@ Include 'config.php';
 $dname = $_POST['dname'];
 $wishlist = $_POST['wishlist'];
 $adresse = $_POST['adresse'];
-$interesse = $_POST['interesse']
+$interesse = $_POST['interesse'];
 $favs = $_POST['like'];
 $notlike = $_POST['notLike'];
 $code=$_POST['code'];
 
-$mysqli = new mysqli("$DBHOST", "$DBUSER", "$DBPASS", "$DBNAME");
-if ($mysqli->connect_errno) {
-    throw new RuntimeException('mysqli connection error: ' . $mysqli->connect_error);
+
+function showerr($errmsg){
+  global $mysqli;
+  if (isset($mysqli)) {
+    $mysqli->close(); 
+  }
+  echo "<h1>$errmsg</h1>";
+  echo "<a href=.>Zurück</a>";
+  exit();
 }
+
+
+// Direktes aufrufen verhindern
+if (!isset($_POST['code'])) {
+  header("location:.");
+}
+
+
 
 #print nl2br("$dname \n $wishlist \n $adresse \n $favs \n $notlike $code\n");
 
 if (!in_array($code, $CODES)) {
-	print "Code nicht gültig!!";
-
-	exit();
+  showerr("Code nicht gültig!");
 }
+$mysqli = new mysqli("$DBHOST", "$DBUSER", "$DBPASS", "$DBNAME");
+if ($mysqli->connect_errno) {
+  die('mysqli connection error: ' . $mysqli->connect_error);
+}
+
+  $sql = "SELECT code from teilnehmer";
+  $res = $mysqli->query($sql);
+  $usedcodes = array();
+  while($row = $res->fetch_assoc()) {
+    $x = $row["code"];
+    array_push($usedcodes, $x);
+  }
+  if (in_array($code, $usedcodes)) {
+    showerr("Code wurde bereits genutzt!");
+  }
 
 
 
@@ -34,4 +61,4 @@ if ($mysqli->query($sql) === TRUE) {
 }
 $mysqli->close();
 
-?>
+
