@@ -3,7 +3,7 @@ Include 'config.php';
 $dname = $_POST['dname'];
 $wishlist = $_POST['wishlist'];
 $adresse = $_POST['adresse'];
-$interesse = addslashes($_POST['interesse']);
+$interesse = $_POST['interesse']
 $favs = $_POST['like'];
 $notlike = $_POST['notLike'];
 $code=$_POST['code'];
