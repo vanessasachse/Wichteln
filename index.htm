@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wichteln Anmeldung</title>
+<link rel="stylesheet" href="./src/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <form action="/">
+        <div class="banner">
+          <h1>Anmeldung Wichteln</h1>
+        </div>
+        <div class="colums">
+          <div class="item">
+            <label for="dname">Discord Name</label>
+            <input id="dname" type="text" name="dname" required/>
+          </div>
+          <div class="item">
+            <label for="wishlist">Wishlist</label>
+            <input id="wishlist" type="text"   name="wishlist"/>
+          </div>
+          <div class="item">
+            <label for="adresse">Adresse (Privat oder Packstation)</label>
+            <textarea name="adresse" id="adresse" cols="30" rows="3" required></textarea>
+          </div>
+          <div class="item">
+            <label for="interesse">Interessen</label>
+            <textarea name="interesse" id="interesse" cols="30" rows="3" required></textarea>
+          </div>
+          <div class="item">
+            <label for="like">Lieblings... (Anime, Manga, Spiel, Essen, ...)</label>
+            <textarea name="like" id="like" cols="30" rows="3"></textarea>
+          </div>
+          <div class="item">
+            <label for="notLike">Abneigungen/Allergien</label>
+            <textarea name="notLike" id="notLike" cols="30" rows="3" required></textarea>
+          </div>
+          <div class="item">
+            <label for="code">Code</label>
+            <input id="code" type="text" name="code" required/>
+          </div>
+        </div>
+        <div class="btn-block">
+          <button type="submit" href="/">Absenden</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
