@@ -14,12 +14,22 @@ while($row = $res->fetch_assoc()) {
 	array_push($teilnehmer, $x);
 }
 
+if (checkrolled() && !$ALLOWREROLL) {
+	echo "Wichtel wurden bereits zugeteilt!\n";
+	exit();
+}
+
+$anzahl = count($teilnehmer);
+if ($anzahl <=1 ) {
+	echo "Keine oder zu wenig Datensätze vorhanden\n";
+	exit();
+}
 
 $err=1;
 while ($err) {
 	$c=0;
 	$wichtel = $teilnehmer;
-	$anzahl = count($teilnehmer);
+	
 	$rmax = $anzahl;
 
 
@@ -46,6 +56,7 @@ while ($err) {
 
 	}
 }
+$mysqli->close;
 
 
 ?>
