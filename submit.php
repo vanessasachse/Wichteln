@@ -56,7 +56,7 @@ VALUES ('$code', '$dname', '$wishlist', '$adresse', '$interesse','$favs', '$notl
 
 
 if ($mysqli->query($sql) === TRUE) {
-  echo "Danke, du bist nun für das Wichteln angemeldet!";
+  echo "Du bist nun für das Wichteln angemeldet!";
 } else {
   echo "Error: " . $sql . "<br>" . $mysqli->error;
 }
