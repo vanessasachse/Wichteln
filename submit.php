@@ -49,10 +49,19 @@ if ($mysqli->connect_errno) {
   }
 
 
+$code=$mysqli->real_escape_string($code);
+$dname=$mysqli->real_escape_string($dname);
+$wishlist=$mysqli->real_escape_string($wishlist);
+$adresse=$mysqli->real_escape_string($adresse);
+$interesse=$mysqli->real_escape_string($interesse);
+$favs=$mysqli->real_escape_string($favs);
+$notlike=$mysqli->real_escape_string($notlike);
 
 
 $sql = "INSERT INTO teilnehmer (code, dname, wishlist, adresse, interesse, favs, notlike)
 VALUES ('$code', '$dname', '$wishlist', '$adresse', '$interesse','$favs', '$notlike')";
+
+
 
 if ($mysqli->query($sql) === TRUE) {
   echo "New record created successfully";
