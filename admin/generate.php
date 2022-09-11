@@ -1,7 +1,7 @@
 <?php 
 //Generiert Teilnehmercodes
 require 'config.php';
-$ANZAHL=5;
+$ANZAHL=$argv[1];
 
 $mysqli = new mysqli("$DBHOST", "$DBUSER", "$DBPASS", "$DBNAME");
 if ($mysqli->connect_errno) {
