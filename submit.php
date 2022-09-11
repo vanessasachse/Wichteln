@@ -1,5 +1,6 @@
 <?php
-Include 'config.php';
+Require 'admin/config.php';
+Require 'admin/functions.php';
 $dname = $_POST['dname'];
 $wishlist = $_POST['wishlist'];
 $adresse = $_POST['adresse'];
@@ -9,44 +10,35 @@ $notlike = $_POST['notLike'];
 $code=$_POST['code'];
 
 
-function showerr($errmsg){
-  global $mysqli;
-  if (isset($mysqli)) {
-    $mysqli->close(); 
-  }
-  echo "<h1>$errmsg</h1>";
-  echo "<a href=.>Zurück</a>";
-  exit();
-}
-
 
 // Direktes aufrufen verhindern
 if (!isset($_POST['code'])) {
   header("location:.");
 }
 
-
-
-#print nl2br("$dname \n $wishlist \n $adresse \n $favs \n $notlike $code\n");
-
-if (!in_array($code, $CODES)) {
-  showerr("Code nicht gültig!");
-}
 $mysqli = new mysqli("$DBHOST", "$DBUSER", "$DBPASS", "$DBNAME");
 if ($mysqli->connect_errno) {
   die('mysqli connection error: ' . $mysqli->connect_error);
 }
 
-  $sql = "SELECT code from teilnehmer";
-  $res = $mysqli->query($sql);
-  $usedcodes = array();
-  while($row = $res->fetch_assoc()) {
-    $x = $row["code"];
-    array_push($usedcodes, $x);
-  }
-  if (in_array($code, $usedcodes)) {
-    showerr("Code wurde bereits genutzt!");
-  }
+
+$res = selectsql("SELECT teilnehmer from zuweisungen where teilnehmer='$code'");
+$row = $res->fetch_assoc();
+if (is_null($row)) {
+  showerr("Code nicht gültig!");
+}
+
+
+$sql = "SELECT code from teilnehmer";
+$res = selectsql("SELECT code from teilnehmer");
+$usedcodes = array();
+while($row = $res->fetch_assoc()) {
+  $x = $row["code"];
+  array_push($usedcodes, $x);
+}
+if (in_array($code, $usedcodes)) {
+  showerr("Code wurde bereits genutzt!");
+}
 
 
 $code=$mysqli->real_escape_string($code);
@@ -64,7 +56,7 @@ VALUES ('$code', '$dname', '$wishlist', '$adresse', '$interesse','$favs', '$notl
 
 
 if ($mysqli->query($sql) === TRUE) {
-  echo "New record created successfully";
+  echo "Danke, du bist nun für das Wichteln angemeldet!";
 } else {
   echo "Error: " . $sql . "<br>" . $mysqli->error;
 }
