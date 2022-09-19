@@ -2,70 +2,39 @@
 First BP  985 × 856 
 
 TODO #5*/
-html, body {
-    min-height: 100%;
-    }
-body, div, form, input, select, textarea, label, p { 
-    padding: 0;
-    margin: 0;
-    outline: none;
-    font-family: Roboto, Arial, sans-serif;
-    font-size: 14px;
-    color: #666;
-    line-height: 22px;
-    }
-h1 {
-    position: absolute;
-    margin: 0;
-    font-size: 40px;
-    color: rgb(44, 44, 44);
-    z-index: 2;
-    line-height: 83px;
-    }
-textarea {
-    width: calc(100% - 12px);
-    padding: 5px;
-    resize: none;
-    }
 
 .container {
-    display: flex;
-    justify-content: center;
+    max-height: 100vh;
+    display: grid;
+    grid-template-columns: 5% 1fr 1fr 6%;
+    grid-template-rows: 63px 1fr;
+    justify-items: center;
     align-items: center;
     height: inherit;
-    padding: 20px;
     }
+.form {
+    grid-column: 3 / 4;
+    grid-row: 2/3;
+    padding: 8px;
+    margin-left: 8px;
+}
 form {
-    max-width: 40%;
+    max-width: 100%;
     padding: 20px;
-    border-radius: 6px;
-    background: #fff;
-    box-shadow: 0 0 8px  #aaacad; 
     }
  .banner {
     height: 100px;
     display: flex;
     align-items: center;
-    }
-input, select, textarea {
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    }
-input {
-    width: calc(100% - 10px);
-    padding: 5px;
+    margin-bottom: 45px;
     }
 
-textarea {
-    width: calc(100% - 12px);
-    padding: 5px;
-    }
 .item input:hover, .item select:hover, .item textarea:hover {
-    border: 1px solid transparent;
-    box-shadow: 0 0 3px 0  #19a8e6;
-    color: #19a8e6;
+    border: 1px solid #4D61FC;
     }
+.item input:focus, .item select:focus, .item textarea:focus {
+        border: 1px solid #4D61FC;
+        }
 .item {
     position: relative;
     margin: 10px 0;
@@ -82,31 +51,24 @@ textarea {
 .colums div {
     width:48%;
     }
-.item i {
-    right: 1%;
-    top: 30px;
-    z-index: 1;
-    }    
-.flax {
-    display:flex;
-    justify-content:space-around;
-    }
+  
 .btn-block {
     margin-top: 10px;
-    text-align: center;
+
     }
 button {
-    width: 150px;
+    width: 120px;
     padding: 10px;
     border: none;
     border-radius: 5px; 
-    background:  #19a8e6;
+    background:  #4D61FC;
     font-size: 16px;
-    color: #fff;
+    color: #f4f4f4;
     cursor: pointer;
+    font-family: Roboto-Regular;
     }
 button:hover {
-    background:  #9fcff0;
+    background:  #3644B1;
     }
 
 

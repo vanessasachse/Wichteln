@@ -1,0 +1,52 @@
+@font-face {
+    font-family: Roboto-Regular;
+    src: url(./Fonts/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: Roboto-Medium;
+    src: url(./Fonts/Roboto-Medium.ttf);
+    font-weight: 500;
+}
+@font-face {
+    font-family: Roboto-Light;
+    src: url(./Fonts/Roboto-Light.ttf);
+    font-weight: 300;
+}
+
+html, body {
+    font-size: 62.5%;
+    }
+body, div, form, input, select, textarea, label, p { 
+        padding: 0;
+        margin: 0;
+        outline: none;
+        font-family: Roboto-Regular, Arial, sans-serif;
+        font-size: 1.8rem;
+        color: #F4F4F4;
+        line-height: 1.4;
+        background-color: #1A1D21;
+     }
+h1 {
+        position: absolute;
+        margin: 0;
+        font-family: Roboto-Medium, Arial, sans-serif;
+        font-size: 4.1rem;
+        color: #4D61FC;
+        line-height: 1.6;
+     }
+input, textarea {
+        width: calc(100% - 50px);
+        padding: 7px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1.6rem
+        }
+    
+textarea {
+    resize: none;
+}
+label {
+    display: block;
+}
