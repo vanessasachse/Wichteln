@@ -1,12 +1,16 @@
 <?php
 
-function showerr($errmsg){
+function showerr($errmsg, $text, $gif){
   global $mysqli;
   if (isset($mysqli)) {
     $mysqli->close(); 
   }
-  echo "<h1>$errmsg</h1>";
-  echo "<a href=.>Zurück</a>";
+  echo '<div class="container">
+  <div class="image">
+    <img src="./images/christmas-decoration.png" alt="girl decorating a christmas tree">
+  </div>';
+  echo "<div class='wrapper'><div class='test'><div class='msg'><h1>$errmsg</h1>";
+  echo "<div class='back'><a href=.><img src='./images/expand_circle_down_FILL0_wght300_GRAD0_opsz48.svg'>Zurück</a></div><div><p>$text</p></div><div class='gif'>$gif</div></div></div></div></div>";
   exit();
 }
 

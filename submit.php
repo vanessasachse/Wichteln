@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./src/style.css">
+  <link rel="stylesheet" href="./src/universal-styles.css">
+  <title>Wichteln</title>
+</head>
+<body>
 <?php
 Require 'admin/config.php';
 Require 'admin/functions.php';
@@ -25,7 +36,7 @@ if ($mysqli->connect_errno) {
 $res = selectsql("SELECT teilnehmer from zuweisungen where teilnehmer='$code'");
 $row = $res->fetch_assoc();
 if (is_null($row)) {
-  showerr("Code nicht gültig!");
+  showerr("CODE UNGÜLTIG!", "Gefettfingert? Versuch’s einfach nochmal.", "<img src='./images/gifs/type-computer.gif' width='160%'>");
 }
 
 
@@ -37,7 +48,9 @@ while($row = $res->fetch_assoc()) {
   array_push($usedcodes, $x);
 }
 if (in_array($code, $usedcodes)) {
-  showerr("Code wurde bereits genutzt!");
+  showerr("UH, OH. DU BIST SCHON FÜR’S 
+  WICHTELN EINGETRAGEN!", "Hast du nach <a href='#'>dieser Seite</a> gesucht? <br>
+  Falls du einfach wissen wolltest, was passiert: Dies. Spannend, nicht wahr?", "<img src='./images/gifs/kermit-the-frog-looking-for-directions.gif' width='160%'>");
 }
 
 
@@ -56,10 +69,19 @@ VALUES ('$code', '$dname', '$wishlist', '$adresse', '$interesse','$favs', '$notl
 
 
 if ($mysqli->query($sql) === TRUE) {
-  echo "Du bist nun für das Wichteln angemeldet!";
+  echo '<div class="container">
+  <div class="image">
+    <img src="./images/christmas-decoration.png" alt="girl decorating a christmas tree">
+  </div>';
+  echo "<div class='wrapper'><div class='test'><div class='msg'><h1>DANKE, DU BIST NUN FÜR DAS 
+  WICHTELN EINGETRAGEN!</h1>";
+  echo "<div class='back'><a href=.><img src='./images/expand_circle_down_FILL0_wght300_GRAD0_opsz48.svg'>Zurück</a></div><div><p>Am <strong>XX.XX.XX</strong> um <strong>XX:XX Uhr</strong> wird dir dein Wichtel zugeteilt! ❄ <br>
+  Ab diesem Zeitpunkt kannst du dir die Informationen zu deinem Wichtel jederzeit unter <br><a href='#'>diesem Link</a> anschauen.</p></div><div class='gif'><img src='./images/gifs/fist.gif' width='160%'></div></div></div></div></div>";
 } else {
   echo "Error: " . $sql . "<br>" . $mysqli->error;
 }
 $mysqli->close();
+?>
 
-
+</body>
+</html>
