@@ -19,7 +19,7 @@ $interesse = $_POST['interesse'];
 $favs = $_POST['like'];
 $notlike = $_POST['notLike'];
 $code=$_POST['code'];
-
+$email=$_POST['email'];
 
 
 // Direktes aufrufen verhindern
@@ -61,10 +61,11 @@ $adresse=$mysqli->real_escape_string($adresse);
 $interesse=$mysqli->real_escape_string($interesse);
 $favs=$mysqli->real_escape_string($favs);
 $notlike=$mysqli->real_escape_string($notlike);
+$email=$mysqli->real_escape_string($email);
 
 
-$sql = "INSERT INTO teilnehmer (code, dname, wishlist, adresse, interesse, favs, notlike)
-VALUES ('$code', '$dname', '$wishlist', '$adresse', '$interesse','$favs', '$notlike')";
+$sql = "INSERT INTO teilnehmer (code, dname, wishlist, adresse, interesse, favs, notlike, email)
+VALUES ('$code', '$dname', '$wishlist', '$adresse', '$interesse','$favs', '$notlike', '$email')";
 
 
 
