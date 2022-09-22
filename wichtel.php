@@ -77,6 +77,11 @@
 		$interesse = nl2br($wichtel['interesse']);
 		$favs = nl2br($wichtel['favs']);
 		$notlike = nl2br($wichtel['notlike']);
+		$email = $wichtel['email'];
+		$res=selectsql("SELECT trackingid from zuweisungen where teilnehmer='$code'");
+		$row=$res->fetch_assoc();
+		$trackingid = $row['trackingid'];
+
 
 //*****
 
@@ -99,6 +104,13 @@
 		echo '<h3>Abneigungen/Allergien</h3>';
 		echo "<p>$notlike</p>";
 
+
+		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			echo "Mail wurde angegeben!";
+
+
+			// TRACKING FELD EINBLENDEN
+		}
 
 		if ($cookie) {
 			echo '<a href="wichtel.php?delcookie=1">Cookie löschen</a>';
