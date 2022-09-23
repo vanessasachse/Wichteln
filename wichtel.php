@@ -65,12 +65,18 @@
 		}
 
 		$code=$mysqli->real_escape_string($code);
-		$res=selectsql("SELECT wichtel from zuweisungen where teilnehmer='$code'");
+		$res=selectsql("SELECT * from zuweisungen where teilnehmer='$code'");
 		$row=$res->fetch_assoc();
 		$wichtel=$row['wichtel'];
+		$teilnehmer=$row['teilnehmer'];
+
+		if (is_null($teilnehmer)) {
+			showerr("FALSCHER TEILNEHMERCODE", "Entweder du hast dich vertippt, oder dir wurde noch kein Wichtel zugeteilt!", "<img src='./images/gifs/kermit-the-frog-looking-for-directions.gif' width='160%'>");
+			exit();
+		}
 
 		if (is_null($wichtel)) {
-			showerr("FALSCHER TEILNEHMERCODE", "Entweder du hast dich vertippt, oder dir wurde noch kein Wichtel zugeteilt!", "<img src='./images/gifs/kermit-the-frog-looking-for-directions.gif' width='160%'>");
+			showerr("NICHT SO SCHNELL", "Die Wichtel wurden noch nicht zugeteilt!", "<img src='./images/gifs/kermit-the-frog-looking-for-directions.gif' width='160%'>");
 			exit();
 		}
 
