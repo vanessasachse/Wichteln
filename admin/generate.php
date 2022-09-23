@@ -22,17 +22,14 @@ for ($i=0; $i < $ANZAHL; $i++) {
 	
 	$code = randomCode();
 	$sql = "INSERT INTO zuweisungen (teilnehmer)
-VALUES ('$code')";
+  VALUES ('$code')";
 
-if ($mysqli->query($sql) === TRUE) {
-  echo "Teilnehmercode $code wurde angelegt!\n";
-} else {
-  echo "Error: " . $sql . "<br>" . $mysqli->error;
-}
+  if ($mysqli->query($sql) === TRUE) {
+    echo "Teilnehmercode $code wurde angelegt!\n";
+  } else {
+    echo "Error: " . $sql . "<br>" . $mysqli->error;
+  }
 
 }
 $mysqli->close();
-
-
-
- ?>
+?>
