@@ -10,7 +10,7 @@ function showerr($errmsg, $text, $gif){
     <img src="./images/christmas-decoration.png" alt="girl decorating a christmas tree">
   </div>';
   echo "<div class='wrapper'><div class='test'><div class='msg'><h1>$errmsg</h1>";
-  echo "<div class='back'><a href=javascript:history.back()><img src='./images/expand_circle_down_FILL0_wght300_GRAD0_opsz48.svg'>Zurück</a></div><div><p>$text</p></div><div class='gif'>$gif</div></div></div></div></div>";
+  echo "<div class='back'><a href=javascript:history.back()><img src='./images/expand_circle_down_FILL0_wght300_GRAD0_opsz48.svg'>Zurück</a></div><div><p>$text</p></div><div class='gif'>$gif</div></div></div></div></div></body></html>";
   exit();
 }
 
