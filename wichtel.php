@@ -21,19 +21,31 @@
 	}
 
 	if (!isset($_POST['code']) && (!isset($_COOKIE['wichtelcode']))) {
-		echo '<p>Gib deinen Teilnehmercode ein';
-
-		echo '<div class=form><form action="wichtel.php" method="post">
-		<div class="colums">
-		<input name="code" type="text" placeholder="code" required />
-		<input name="save" type="checkbox" />
-		<label for="save">Code merken (Setzt einen Cookie)</label>
-
-		<input type="submit" value="ZEIG HER" />
-		</form>
-		</div>';
-
-
+		
+		echo "<div class='container'>
+		<div class='image'>
+		  <img src='./images/christmas-decoration.png' alt='girl decorating a christmas tree'>
+		</div><div class='form teilnehmer'>
+        <form action='wichtel.php' method='post'>
+          <div class='banner'>
+            <h1>ZEIG MIR MEINEN WICHTEL</h1>
+          </div>
+          <div class='colums row'>
+            <div class='item'>
+              <label for='code'>Dein Teilnehmercode <span>*</span></label>
+              <input id='code' type='text' name='code' required/>
+            </div>
+            <div class='item save'>
+			  <input class='end' id='save' type='checkbox' name='save'/>
+              <label class='end checkbox'  for='save'>Code merken (Setzt einen Cookie)</label>
+            </div>   
+          </div>
+          <div class='btn-block'>
+            <button type='submit'>Zeig her!</button>
+          </div>
+        </form>
+      </div>
+    </div>";
 	}
 
 	else{
@@ -58,7 +70,7 @@
 		$wichtel=$row['wichtel'];
 
 		if (is_null($wichtel)) {
-			showerr("Falscher Teilnehmercode", "Entweder du hast dich vertippt, oder dir wurde noch kein Wichtel zugeteilt!", "<img src='./images/gifs/kermit-the-frog-looking-for-directions.gif' width='160%'>");
+			showerr("FALSCHER TEILNEHMERCODE", "Entweder du hast dich vertippt, oder dir wurde noch kein Wichtel zugeteilt!", "<img src='./images/gifs/kermit-the-frog-looking-for-directions.gif' width='160%'>");
 			exit();
 		}
 
@@ -99,7 +111,7 @@
 		echo "<p>$adresse</p>";
 		echo '<h3>Interessen</h3>';
 		echo "<p>$interesse</p>";
-		echo '<h3>Lieblings...</h3>';
+		echo '<h3>Lieblingsdinge</h3>';
 		echo "<p>$favs</p>";
 		echo '<h3>Abneigungen/Allergien</h3>';
 		echo "<p>$notlike</p>";

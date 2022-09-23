@@ -162,3 +162,34 @@ div.msg > h1 {
 .gif img {
     max-width: 200%;
 }
+
+.teilnehmer {
+    width: 100%;
+}
+.teilnehmer > form {
+    padding: 20px !important;
+}
+
+.checkbox {
+    margin-left: 5px;
+    display: inline-block;
+    font-size: 1.6rem;
+}
+
+#save {
+    margin-left: 0;
+    width: auto;
+}
+.row {
+    flex-direction: column;
+}
+#code {
+    margin-bottom: 0;
+}
+.save {
+    margin-top: 15px;
+}
+input[type="checkbox"] {
+   position: relative;
+    top: -1px;
+}
