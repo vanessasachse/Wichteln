@@ -76,7 +76,7 @@
 		}
 
 		if (is_null($wichtel)) {
-			showerr("NICHT SO SCHNELL", "Die Wichtel wurden noch nicht zugeteilt!", "<img src='./images/gifs/kermit-the-frog-looking-for-directions.gif' width='160%'>");
+			showerr("NICHT SO SCHNELL", "Die Wichtel wurden noch nicht zugeteilt!<br>Am <strong>$ROLLDATE</strong> um <strong>$ROLLTIME Uhr</strong> wird dir dein Wichtel zugeteilt! ❄", "<img src='./images/gifs/spongebob-cant-wait.gif' width='140%'>");
 			exit();
 		}
 
