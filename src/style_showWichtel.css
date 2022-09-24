@@ -1,0 +1,200 @@
+/*TODO #4
+First BP  985 × 856 
+
+TODO #5*/
+
+.container {
+    max-height: 100vh;
+    display: grid;
+    grid-template-columns: 5% 1fr 1fr 6%;
+    grid-template-rows: 65px 1fr 1fr;
+    justify-items: center;
+
+    height: inherit;
+    }
+.form {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    padding: 8px;
+    margin-left: 8px;
+}
+.wrapper {
+    grid-column: 3 / 4;
+    grid-row: 2/3;
+    padding: 8px;
+    margin-left: 8px;
+    min-width:100%;
+    padding-left: 24px;
+    padding-top: 26px;
+}
+.image, img {
+    grid-column: 3/5;
+    grid-row: 2/4;
+    justify-self: end;
+    align-self: end;
+    max-width: 100%;
+    height: auto;
+    margin-top: 60px;
+    margin-right: 60px;
+}
+.msg {
+    height: 100px;
+    display: flex;
+    align-items: start;
+    margin-bottom: 45px;
+    flex-direction: column;
+}
+.test {
+    max-width: 100%;
+    padding: 25px;
+    padding-left: 7px;
+}
+div > p {
+    margin-top: 35px;
+}
+form {
+    max-width: 100%;
+    padding: 20px;
+    padding-left: 7px;
+    }
+ .banner {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 45px;
+    }
+
+.end {
+    margin-left: 34px;
+}
+.item input:hover, .item select:hover, .item textarea:hover {
+    border: 1px solid #4D61FC;
+    }
+.item input:focus, .item select:focus, .item textarea:focus {
+        border: 1px solid #4D61FC;
+        }
+.item {
+    position: relative;
+    margin: 10px 0;
+    }
+.item span {
+    color: #4D61FC;
+    }
+.colums {
+    display:flex;
+    justify-content:space-between;
+    flex-direction:row;
+    flex-wrap:wrap;
+    }
+.colums div {
+    width:48%;
+    }
+  
+.btn-block {
+    margin-top: 25px;
+    align-self: end;
+    margin-bottom: 10px;
+    margin-right: 24px;
+    }
+button {
+    width: 120px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px; 
+    background:  #4D61FC;
+    font-size: 16px;
+    color: #f4f4f4;
+    cursor: pointer;
+    font-family: Roboto-Regular;
+    
+    }
+button:hover {
+    background:  #3644B1;
+    color: #e4e4e4;
+    }
+
+
+@media (max-width: 1020px){
+    form { max-width: 90%;
+}
+    h1 {
+        font-size: 32px;
+    }
+}
+@media (max-width: 460px){
+    label {
+        font-size: 13px;
+    }
+    form {
+        max-width: 100%;
+        border-radius: 6px;
+        background: rgb(255, 255, 255);
+        box-shadow: 0 0 8px  #ebe8e8; 
+    }
+    .colums {
+        flex-direction: column;
+    }
+    h1 {
+        font-size: 26px;
+    }
+    .colums div {
+        width:100%;
+    }
+    button {
+        width: 120px;
+        
+    }
+    .banner {
+        height: 77px;
+    }
+
+}
+div.msg > h1 {
+    position: relative;
+}
+.back img {
+   margin-right: 0;
+   rotate: 90deg;
+   width: 40%; 
+}
+.back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+.gif img {
+    max-width: 200%;
+}
+
+.teilnehmer {
+    width: 100%;
+}
+.teilnehmer > form {
+    padding: 20px !important;
+}
+
+.checkbox {
+    margin-left: 5px;
+    display: inline-block;
+    font-size: 1.6rem;
+}
+
+#save {
+    margin-left: 0;
+    width: auto;
+}
+
+#code {
+    margin-bottom: 0;
+}
+.save {
+    margin-top: 7px;
+}
+input[type="checkbox"] {
+   position: relative;
+    top: -1px;
+}
+.codeInput {
+    width: calc(100% - 33px);
+}

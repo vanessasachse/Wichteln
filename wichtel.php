@@ -4,9 +4,9 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./src/style.css">
+	<link rel="stylesheet" href="./src/style_showWichtel.css">
 	<link rel="stylesheet" href="./src/universal-styles.css">
-	<title>Wichtel</title>
+	<title>Informationen zu deinem Wichtel</title>
 </head>
 <body>
 
@@ -24,25 +24,27 @@
 		
 		echo "<div class='container'>
 		<div class='image'>
-		  <img src='./images/christmas-decoration.png' alt='girl decorating a christmas tree'>
+		  <img src='./images/christmas-celebration.png' alt='santa flying over house'>
 		</div><div class='form teilnehmer'>
         <form action='wichtel.php' method='post'>
           <div class='banner'>
-            <h1>ZEIG MIR MEINEN WICHTEL</h1>
+            <h1>INFORMATIONEN ZU DEINEM WICHTEL</h1>
           </div>
           <div class='colums row'>
             <div class='item'>
               <label for='code'>Dein Teilnehmercode <span>*</span></label>
-              <input id='code' type='text' name='code' required/>
+              <input class='codeInput' id='code' type='text' name='code' required/>
             </div>
+			<div class='item btn-block'>
+            <button type='submit'>Zeig her!</button>
+          </div>
             <div class='item save'>
 			  <input class='end' id='save' type='checkbox' name='save'/>
               <label class='end checkbox'  for='save'>Code merken (Setzt einen Cookie)</label>
             </div>   
+			
           </div>
-          <div class='btn-block'>
-            <button type='submit'>Zeig her!</button>
-          </div>
+          
         </form>
       </div>
     </div>";

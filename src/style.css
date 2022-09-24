@@ -91,7 +91,9 @@ form {
   
 .btn-block {
     margin-top: 25px;
-
+    align-self: end;
+    margin-bottom: 10px;
+    margin-right: 24px;
     }
 button {
     width: 120px;
@@ -103,6 +105,7 @@ button {
     color: #f4f4f4;
     cursor: pointer;
     font-family: Roboto-Regular;
+    
     }
 button:hover {
     background:  #3644B1;
@@ -180,9 +183,7 @@ div.msg > h1 {
     margin-left: 0;
     width: auto;
 }
-.row {
-    flex-direction: column;
-}
+
 #code {
     margin-bottom: 0;
 }
@@ -192,4 +193,7 @@ div.msg > h1 {
 input[type="checkbox"] {
    position: relative;
     top: -1px;
+}
+.codeInput {
+    width: calc(100% - 33px);
 }
