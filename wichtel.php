@@ -78,7 +78,7 @@
 		}
 
 		if (is_null($wichtel)) {
-			showerr("NICHT SO SCHNELL", "Die Wichtel wurden noch nicht zugeteilt!<br>Am <strong>$ROLLDATE</strong> um <strong>$ROLLTIME Uhr</strong> wird dir dein Wichtel zugeteilt! ❄", "<img src='./images/gifs/spongebob-cant-wait.gif' width='140%'>");
+			showerr("NICHT SO SCHNELL", "Die Wichtel wurden noch nicht zugeteilt!<br>Am <strong>$ROLLDATE</strong> um <strong>$ROLLTIME Uhr</strong> wird dir dein Wichtel zugeteilt! ❄", "<img src='./images/gifs/spongebob-cant-wait.gif' width='120%'>");
 			exit();
 		}
 
