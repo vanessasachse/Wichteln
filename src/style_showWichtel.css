@@ -19,7 +19,7 @@ TODO #5*/
     margin-left: 8px;
 }
 .wrapper {
-    grid-column: 3 / 4;
+    grid-column: 2 / 3;
     grid-row: 2/3;
     padding: 8px;
     margin-left: 8px;
@@ -197,4 +197,8 @@ input[type="checkbox"] {
 }
 .codeInput {
     width: calc(100% - 33px);
+}
+
+a > img {
+    margin-top: 0;
 }

@@ -24,7 +24,7 @@
 		
 		echo "<div class='container'>
 		<div class='image'>
-		  <img src='./images/christmas-celebration.png' alt='santa flying over house'>
+		  
 		</div><div class='form teilnehmer'>
         <form action='wichtel.php' method='post'>
           <div class='banner'>
