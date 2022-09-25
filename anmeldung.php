@@ -54,7 +54,7 @@ if ($REGCLOSED) {
               <input id="wishlist" type="text"   name="wishlist"/>
             </div>
             <div class="item">
-              <label class="end" for="email">E-Mail <img title="Falls du per E-Mail darüber informiert werden möchtest, dass dein Paket auf dem Weg ist. Dein Wichtel sieht deine E-Mail Adresse nicht." src="./images/help_FILL0_wght400_GRAD0_opsz48.svg" alt="help" width="18px"></label>
+              <label class="end" for="email">E-Mail <span data-text="Falls du per E-Mail darüber informiert werden möchtest, wenn dein Paket auf dem Weg ist. Dein Wichtel sieht deine E-Mail Adresse nicht." class="tooltip"><img src="./images/help_FILL0_wght400_GRAD0_opsz48.svg" alt="help" width="18px" class="help"></span></label>
               <input class="end" id="email" type="email"   name="email"/>
             </div>
             

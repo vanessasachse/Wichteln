@@ -197,3 +197,33 @@ input[type="checkbox"] {
 .codeInput {
     width: calc(100% - 33px);
 }
+
+.tooltip {
+    position:absolute; 
+    margin-left:4px;
+}
+
+.tooltip:before {
+    content: attr(data-text); 
+    position:absolute;
+    
+    bottom:100%;
+    margin-bottom:5px;
+    width:350px;
+    padding:10px;
+    border-radius:10px;
+    background:#000;
+    color: #f4f4f4;
+    text-align:center;
+    opacity:0;
+    transition:.3s opacity; 
+    font-size: 1.6rem;
+  }
+
+  .tooltip:hover:before {
+    display:block;
+    opacity:1;
+  }
+.help {
+    margin-right:0;
+}
