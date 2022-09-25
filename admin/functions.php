@@ -1,9 +1,10 @@
 <?php
 
-function showerr($errmsg, $text, $gif){
+function showerr($errmsg, $text, $gif)
+{
   global $mysqli;
   if (isset($mysqli)) {
-    $mysqli->close(); 
+    $mysqli->close();
   }
   echo '<div class="container">';
   echo "<div class='wrapper'><div class='test'><div class='msg'><h1>$errmsg</h1>";
@@ -11,31 +12,34 @@ function showerr($errmsg, $text, $gif){
   exit();
 }
 
-function checkrolled(){
-  $rolled=0;
+function checkrolled()
+{
+  $rolled = 0;
   $res = selectsql("SELECT wichtel from zuweisungen");
-  $check=array();
-  while($row = $res->fetch_assoc()) {
+  $check = array();
+  while ($row = $res->fetch_assoc()) {
     $x = $row["wichtel"];
     array_push($check, $x);
   }
 
   foreach ($check as &$value) {
     if (!is_null($value)) {
-      $rolled=1;
+      $rolled = 1;
     }
   }
   return $rolled;
 }
 
-function selectsql($query){
+function selectsql($query)
+{
   global $mysqli;
   $sql = $query;
   $res = $mysqli->query($sql);
   return $res;
 }
 
-function setwichtel($teilnehmer, $wichtel){
+function setwichtel($teilnehmer, $wichtel)
+{
   global $mysqli;
   $sql = "UPDATE zuweisungen set wichtel='$wichtel' where teilnehmer='$teilnehmer'";
 
@@ -44,19 +48,46 @@ function setwichtel($teilnehmer, $wichtel){
   } else {
     echo "Error: " . $sql . "<br>" . $mysqli->error;
   }
-
 }
 
-function randomCode() {
-    global $CODELENGTH;
-    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
-    $pass = array(); //remember to declare $pass as an array
-    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
-    for ($i = 0; $i < $CODELENGTH; $i++) {
-        $n = rand(0, $alphaLength);
-        $pass[] = $alphabet[$n];
-    }
-    return implode($pass); //turn the array into a string
+function randomCode()
+{
+  global $CODELENGTH;
+  $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+  $pass = array(); //remember to declare $pass as an array
+  $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+  for ($i = 0; $i < $CODELENGTH; $i++) {
+    $n = rand(0, $alphaLength);
+    $pass[] = $alphabet[$n];
+  }
+  return implode($pass); //turn the array into a string
 }
 
-?>
+function sendTrackingMail($to, $tracking)
+{
+  global $MAILFROM;
+  $headers[] = 'MIME-Version: 1.0';
+  $headers[] = 'Content-type: text/html; charset=utf-8';
+  // $headers[] = "To: <$to>";
+  $headers[] = "From: Wichtelaktion <$MAILFROM>";
+
+
+
+  $subject = 'Dein Wichtelpaket ist auf dem Weg!';
+  $message = "<html>
+  <head>
+    <title>Dein Wichtelpaket ist auf dem Weg!</title>
+  </head>
+  <body>
+  Hallo,<br>
+  dein Wichtelpaket ist auf dem Weg, Hurra!<br><br>
+  Deine Trackingnummer lautet: $tracking<br><br>
+  <a href=https://nolp.dhl.de/nextt-online-public/set_identcodes.do?lang=de&idc=$tracking>DHL Tracking Link</a>
+  </body>
+  </html>
+  ";
+
+
+ mail($to, $subject, $message, implode("\r\n", $headers), "-f $MAILFROM");
+
+}

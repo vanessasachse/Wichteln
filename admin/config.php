@@ -8,5 +8,4 @@ $ROLLDATE="XX.XX.XXXX";
 $ROLLTIME="XX:XX";
 $ALLOWREROLL=false;
 $CODELENGTH=32;
-
-?>
+$MAILFROM='wichteln@gurke.cc';
