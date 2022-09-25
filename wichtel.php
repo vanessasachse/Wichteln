@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +9,10 @@
 	<link rel="stylesheet" href="./src/universal-styles.css">
 	<title>Informationen zu deinem Wichtel</title>
 </head>
+
 <body>
 
-	<?php 
+	<?php
 	require 'admin/config.php';
 	require 'admin/functions.php';
 	$cookie = 0;
@@ -20,8 +22,10 @@
 		Header("Location:wichtel.php");
 	}
 
+
+
 	if (!isset($_POST['code']) && (!isset($_COOKIE['wichtelcode']))) {
-		
+
 		echo "<div class='container'>
 		<div class='image'>
 		  <img src='./images/christmas-celebration.png' alt='santa flying over house'>
@@ -47,15 +51,12 @@
         </form>
       </div>
     </div>";
-	}
-
-	else{
+	} else {
 		if (isset($_COOKIE['wichtelcode'])) {
 			$code = $_COOKIE['wichtelcode'];
 			$cookie = 1;
-		}
-		else {
-			$code=$_POST['code'];
+		} else {
+			$code = $_POST['code'];
 		}
 
 
@@ -65,11 +66,11 @@
 			die('mysqli connection error: ' . $mysqli->connect_error);
 		}
 
-		$code=$mysqli->real_escape_string($code);
-		$res=selectsql("SELECT * from zuweisungen where teilnehmer='$code'");
-		$row=$res->fetch_assoc();
-		$wichtel=$row['wichtel'];
-		$teilnehmer=$row['teilnehmer'];
+		$code = $mysqli->real_escape_string($code);
+		$res = selectsql("SELECT * from zuweisungen where teilnehmer='$code'");
+		$row = $res->fetch_assoc();
+		$wichtel = $row['wichtel'];
+		$teilnehmer = $row['teilnehmer'];
 
 		if (is_null($teilnehmer)) {
 			showerr("FALSCHER TEILNEHMERCODE", "Entweder du hast dich vertippt, oder dir wurde noch kein Wichtel zugeteilt!", "<img src='./images/gifs/kermit-the-frog-looking-for-directions.gif' width='160%'>");
@@ -82,12 +83,12 @@
 		}
 
 
-///WICHTEL INFO
+		///WICHTEL INFO
 		if ($_POST['save']) {
-			setcookie("wichtelcode", $code, time() + (3600*30) * 30);
+			setcookie("wichtelcode", $code, time() + (3600 * 30) * 30);
 			$cookie = 1;
 		}
-		
+
 		$wichtel = selectsql("SELECT * FROM teilnehmer where code='$wichtel'")->fetch_assoc();
 
 		$dname = $wichtel['dname'];
@@ -97,20 +98,42 @@
 		$favs = nl2br($wichtel['favs']);
 		$notlike = nl2br($wichtel['notlike']);
 		$email = $wichtel['email'];
-		$res=selectsql("SELECT trackingid from zuweisungen where teilnehmer='$code'");
-		$row=$res->fetch_assoc();
+		$res = selectsql("SELECT trackingid from zuweisungen where teilnehmer='$code'");
+		$row = $res->fetch_assoc();
 		$trackingid = $row['trackingid'];
+		if ($trackingid != null) {
+
+			$trackingsent = 1;
+		}
 
 
-//*****
+		//*****
 
+		if (isset($_POST['trackcode']) && (!$trackingsent)) {
+			$trackingcode = $_POST['trackcode'];
+			if (!validateTrackingCode($trackingcode)) {
+				echo "<h1>Fehler!</h1>
+				<p style='padding-top: 60px;'>Bitte nur Buchstaben und Zahlen eingeben!</p>
+				<a href=wichtel.php>Zurück</a></body></html>";
+				exit();
+			}
+			$trackingcode = $mysqli->real_escape_string($trackingcode);
+			$sql = "UPDATE zuweisungen set trackingid='$trackingcode' where teilnehmer='$code'";
+			// $mysqli->$query($sql);
+			if ($mysqli->query($sql) === TRUE) {
+				$trackingsent = 1;
+				// Mails verschicken klappt nur im Echtbetrieb
+				if ($sendmail) {
+					sendTrackingMail($email, $trackingcode, $dname);
+				} else {
+					echo "Mail versendet";
+				}
+			} else {
+				echo "Error: " . $sql . "<br>" . $mysqli->error;
+			}
+		}
 
-
-		?>
-
-
-		<?php 
-		echo"<div class='container'>
+		echo "<div class='container'>
 		<div class='image'>
 		  <img src='./images/christmas-celebration.png' alt='santa flying over house'>
 		  </div>
@@ -151,20 +174,29 @@
             </div>
           </div>";
 		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-		 	echo "<div class='subbanner'>
+			echo "<div class='subbanner'>
 			 <h2>DER WEIHNACHTSMANN KANN KOMMEN!</h2>
 		   </div>
 		   <div class='item'>
 		   <p class='wichteltracking'>Du hast das perfekte Geschenk für deinen Wichtel verschickt? Super! <br>
-		   Lass die Trackingnummer dazu hier und wir benachrichtigen deinen Wichtel, dass sein Wichtelgeschenk auf dem Weg ist!  🎁</p>
+		   Lass die Trackingnummer dazu hier und wir benachrichtigen deinen Wichtel, dass sein Wichtelgeschenk auf dem Weg ist!  🎁</p>";
+
+			if (!$trackingsent) {
+				echo "
 		   <form action='#' method='post'>
 		   <label class='smallerlabel' for='trackcode'>Trackingcode</label>
-			 <input class='trackingcode' id='trackcode' type='text' name='trackcode'/>
-			 <div class='item btn-block btn-tracking'>
+			 <input class='trackingcode' id='trackcode' type='text' name='trackcode' required pattern=\"\w{3,}\" />";
+				if (!$cookie) {
+					echo " <input class='hidden'  name='code' value=\"$code\" />";
+				}
+				echo "<div class='item btn-block btn-tracking'>
 		   		<button type='submit'>Absenden</button>
 			 </div>
-			 </form>
-		   </div>";
+			 </form>";
+			} else {
+				echo "<p class='trackingsent'>Du hast deinem Wichtel die Trackingnummer gesendet, toll!</p>";
+			}
+			echo '</div>';
 		}
 
 		if ($cookie) {
@@ -176,4 +208,5 @@
 
 	?>
 </body>
+
 </html>

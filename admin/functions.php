@@ -63,23 +63,27 @@ function randomCode()
   return implode($pass); //turn the array into a string
 }
 
-function sendTrackingMail($to, $tracking)
+function validateTrackingCode($code){
+  $pattern = "/^\w+$/";
+  return preg_match("$pattern", $code);
+
+}
+
+function sendTrackingMail($to, $tracking, $discordname)
 {
   global $MAILFROM;
+  global $MAILNAME;
   $headers[] = 'MIME-Version: 1.0';
   $headers[] = 'Content-type: text/html; charset=utf-8';
   // $headers[] = "To: <$to>";
-  $headers[] = "From: Wichtelaktion <$MAILFROM>";
-
-
-
+  $headers[] = "From: $MAILNAME <$MAILFROM>";
   $subject = 'Dein Wichtelpaket ist auf dem Weg!';
   $message = "<html>
   <head>
     <title>Dein Wichtelpaket ist auf dem Weg!</title>
   </head>
   <body>
-  Hallo,<br>
+  Hallo $discordname,<br>
   dein Wichtelpaket ist auf dem Weg, Hurra!<br><br>
   Deine Trackingnummer lautet: $tracking<br><br>
   <a href=https://nolp.dhl.de/nextt-online-public/set_identcodes.do?lang=de&idc=$tracking>DHL Tracking Link</a>
@@ -88,6 +92,5 @@ function sendTrackingMail($to, $tracking)
   ";
 
 
- mail($to, $subject, $message, implode("\r\n", $headers), "-f $MAILFROM");
-
+  mail($to, $subject, $message, implode("\r\n", $headers), "-f $MAILFROM");
 }

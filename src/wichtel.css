@@ -255,3 +255,12 @@ font-size: 1.6rem;
 .smallerlink {
     font-size: 1.4rem;
 }
+
+.trackingsent{
+    color: #52B462;
+    text-transform: uppercase;
+    font-family: Roboto-Medium, Arial, sans-serif;
+}
+.hidden {
+    display: none;
+}
