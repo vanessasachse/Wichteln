@@ -84,7 +84,7 @@ function sendTrackingMail($to, $tracking, $discordname)
   </head>
   <body>
   Hallo $discordname,<br>
-  dein Wichtelpaket ist auf dem Weg, Hurra!<br><br>
+  dein Wichtelpaket ist auf dem Weg, hurra!<br><br>
   Deine Trackingnummer lautet: $tracking<br><br>
   <a href=https://nolp.dhl.de/nextt-online-public/set_identcodes.do?lang=de&idc=$tracking>DHL Tracking Link</a>
   </body>
