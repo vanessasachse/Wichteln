@@ -154,9 +154,14 @@
             </div>
 			<div class='item info'>
 			<img class='icon' src='./images/event_note_FILL0_wght300_GRAD0_opsz48.svg' alt='list icon'>
-			<h3>Wishlist</h3>
-			 <p><a href='$wishlist' target='_blank'>$wishlist</a></p>
-            </div>
+			<h3>Wishlist</h3>";
+			if (filter_var($wishlist, FILTER_VALIDATE_URL)) {
+				echo "<p><a href='$wishlist' target='_blank'>$wishlist</a></p>";
+			}
+			else {
+				echo" <p>$wishlist</p>";
+			}
+            echo "</div>
 			<div class='item info'>
 			<img class='icon' src='./images/favorite_FILL0_wght300_GRAD0_opsz48.svg' alt='heart icon'>
 			<h3>Lieblingsdinge</h3>
