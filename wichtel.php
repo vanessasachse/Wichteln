@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./src/wichtel.css">
 	<link rel="stylesheet" href="./src/universal-styles.css">
+	<link rel="stylesheet" href="./src/mobile_wichtel.css">
 	<title>Informationen zu deinem Wichtel</title>
 </head>
 

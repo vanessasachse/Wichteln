@@ -1,0 +1,42 @@
+@media (max-width: 1043px){
+    .image {
+        display:none;
+    }
+    .form {
+        grid-column: 1/4;
+    }
+    h1 {
+        font-size: 3.8rem;
+    }
+}
+
+@media (max-width: 550px){
+    label {
+        font-size: 1.4rem;
+    }
+    form {
+        max-width: 100%;
+    }
+    .colums {
+        flex-direction: column;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+    .colums div {
+        width:121%;
+    }
+    button {
+        width: 120px;
+    }
+    .banner {
+        height: 77px;
+    }
+    .end {
+        margin-left: 0;
+    }
+    input, textarea {
+        font-size: 1.4rem;
+        padding: 10px;
+    }
+}

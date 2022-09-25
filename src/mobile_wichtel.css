@@ -1,0 +1,43 @@
+@media (max-width: 1437px){
+    .image {
+        display:none;
+    }
+}
+@media (max-width: 1100px){
+    h1 {
+        font-size: 32px;
+    }
+    .colums div {
+        width: 100%;
+    }
+    .btn-block {
+        margin-top: 5px;
+        margin-bottom: 35px;
+}
+}
+
+@media (max-width: 550px){
+   .colums {
+    flex-direction: column;
+   }
+   .colums div {
+    width: 170%;
+   }
+   label {
+    font-size: 1.4rem;
+    }
+    button {
+    width: 90px;
+    font-size: 1.4rem;
+    }
+    .checkbox {
+        font-size: 1.4rem;
+    }
+    h1 {
+        font-size: 2.9rem;
+        margin-right:30px;
+    }
+    .btn-block {
+        margin-top: 5px;
+        margin-bottom: 35px;
+}

@@ -114,41 +114,7 @@ button:hover {
     }
 
 
-@media (max-width: 1020px){
-    form { max-width: 90%;
-}
-    h1 {
-        font-size: 32px;
-    }
-}
-@media (max-width: 460px){
-    label {
-        font-size: 13px;
-    }
-    form {
-        max-width: 100%;
-        border-radius: 6px;
-        background: rgb(255, 255, 255);
-        box-shadow: 0 0 8px  #ebe8e8; 
-    }
-    .colums {
-        flex-direction: column;
-    }
-    h1 {
-        font-size: 26px;
-    }
-    .colums div {
-        width:100%;
-    }
-    button {
-        width: 120px;
-        
-    }
-    .banner {
-        height: 77px;
-    }
 
-}
 div.msg > h1 {
     position: relative;
 }

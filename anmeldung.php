@@ -13,6 +13,7 @@ if ($REGCLOSED) {
     <title>Wichteln Anmeldung</title>
     <link rel="stylesheet" href="./src/universal-styles.css">
     <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="./src/mobile_anmeldung.css">
   </head>
   <body>
     <div class="container">
