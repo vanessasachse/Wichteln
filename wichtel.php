@@ -123,7 +123,7 @@
 			if ($mysqli->query($sql) === TRUE) {
 				$trackingsent = 1;
 				// Mails verschicken klappt nur im Echtbetrieb
-				if ($sendmail) {
+				if ($SENDMAIL) {
 					sendTrackingMail($email, $trackingcode, $dname);
 				} else {
 					echo "Mail versendet";
@@ -155,7 +155,7 @@
 			<div class='item info'>
 			<img class='icon' src='./images/event_note_FILL0_wght300_GRAD0_opsz48.svg' alt='list icon'>
 			<h3>Wishlist</h3>
-			 <p><a href='$wishlist'>$wishlist</a></p>
+			 <p><a href='$wishlist' target='_blank'>$wishlist</a></p>
             </div>
 			<div class='item info'>
 			<img class='icon' src='./images/favorite_FILL0_wght300_GRAD0_opsz48.svg' alt='heart icon'>
