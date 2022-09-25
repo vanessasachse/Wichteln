@@ -225,8 +225,33 @@ h3 {
     align-self: start;
     width: 200px;
   }
+  h2 {
+    font-size: 2.8rem;
+    margin-bottom: 0;
+    margin-top:60px;
+    color: #4D61FC;
+  }
 div > p {
     grid-column: 2/3;
 margin: 0;
 font-size: 1.6rem;
+}
+.wichteltracking {
+    margin-bottom: 30px;
+    width: 80%;
+}
+.trackingcode {
+    width: calc(35% + 100px);
+}
+.btn-tracking {
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 0;
+}
+.smallerlabel {
+    font-size: 1.6rem;
+}
+
+.smallerlink {
+    font-size: 1.4rem;
 }

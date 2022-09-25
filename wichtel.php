@@ -109,8 +109,8 @@
 		?>
 
 
-		<?php echo"
-		<div class='container'>
+		<?php 
+		echo"<div class='container'>
 		<div class='image'>
 		  <img src='./images/christmas-celebration.png' alt='santa flying over house'>
 		  </div>
@@ -149,30 +149,29 @@
 			<h3>Abneigungen/Allergien</h3>
 			 <p>$notlike</p>
             </div>
-          </div>
-      </div>
-    </div>";
+          </div>";
+		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		 	echo "<div class='subbanner'>
+			 <h2>DER WEIHNACHTSMANN KANN KOMMEN!</h2>
+		   </div>
+		   <div class='item'>
+		   <p class='wichteltracking'>Du hast das perfekte Geschenk für deinen Wichtel verschickt? Super! <br>
+		   Lass die Trackingnummer dazu hier und wir benachrichtigen deinen Wichtel, dass sein Wichtelgeschenk auf dem Weg ist!  🎁</p>
+			 <label class='smallerlabel' for='trackcode'>Trackingcode</label>
+			 <input class='trackingcode' id='trackcode' type='text' name='trackcode'/>
+			 <div class='item btn-block btn-tracking'>
+		   		<button type='submit'>Absenden</button>
+			 </div>
+		   </div>";
+		}
 
-		// echo '<h3>Interessen</h3>';
-		// echo "<p>$interesse</p>";
-		// echo '<h3>Lieblingsdinge</h3>';
-		// echo "<p>$favs</p>";
-		// echo '<h3>Abneigungen/Allergien</h3>';
-		// echo "<p>$notlike</p>";
-
-
-		// if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-		// 	echo "Mail wurde angegeben!";
-
-
-		// 	// TRACKING FELD EINBLENDEN
-		// }
-
-		// if ($cookie) {
-		// 	echo '<a href="wichtel.php?delcookie=1">Cookie löschen</a>';
-		// }
+		if ($cookie) {
+			echo '<p><a class="smallerlink" href="wichtel.php?delcookie=1">Cookie löschen</a></p>';
+		}
+		echo "</div>
+		</div>";
 	}
-	?>
 
+	?>
 </body>
 </html>
