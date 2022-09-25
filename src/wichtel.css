@@ -202,3 +202,31 @@ input[type="checkbox"] {
 a > img {
     margin-top: 0;
 }
+.info {
+    width: 27%!important;
+}
+div.item.info {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    grid-template-rows: auto 1fr;
+    margin-bottom: 40px;
+}
+.icon {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    align-self: start;
+    justify-self: start;
+    margin-top: 0;
+    margin-right: 0;
+  }
+h3 {
+    font-size: 20px;
+    margin: 0;
+    align-self: start;
+    width: 200px;
+  }
+div > p {
+    grid-column: 2/3;
+margin: 0;
+font-size: 1.6rem;
+}

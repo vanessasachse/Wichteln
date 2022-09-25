@@ -24,7 +24,9 @@
 		
 		echo "<div class='container'>
 		<div class='image'>
-		  <img src='./images/christmas-celebration.png' alt='santa flying over house'></div><div class='form teilnehmer'>
+		  <img src='./images/christmas-celebration.png' alt='santa flying over house'>
+		  </div>
+		<div class='form teilnehmer'>
         <form action='wichtel.php' method='post'>
           <div class='banner'>
             <h1>INFORMATIONEN ZU DEINEM WICHTEL</h1>
@@ -41,9 +43,7 @@
 			  <input class='end' id='save' type='checkbox' name='save'/>
               <label class='end checkbox'  for='save'>Code merken (Setzt einen Cookie)</label>
             </div>   
-			
           </div>
-          
         </form>
       </div>
     </div>";
@@ -109,31 +109,68 @@
 		?>
 
 
-		<?php 
-		echo '<h3>Discord-Name</h3>';
-		echo "<p>$dname</p>";
-		echo '<h3>Wunschliste</h3>';
-		echo "<p>$wishlist</p>";
-		echo '<h3>Adresse</h3>';
-		echo "<p>$adresse</p>";
-		echo '<h3>Interessen</h3>';
-		echo "<p>$interesse</p>";
-		echo '<h3>Lieblingsdinge</h3>';
-		echo "<p>$favs</p>";
-		echo '<h3>Abneigungen/Allergien</h3>';
-		echo "<p>$notlike</p>";
+		<?php echo"
+		<div class='container'>
+		<div class='image'>
+		  <img src='./images/christmas-celebration.png' alt='santa flying over house'>
+		  </div>
+		<div class='form teilnehmer'>
+          <div class='banner'>
+            <h1>INFORMATIONEN ZU DEINEM WICHTEL</h1>
+          </div>
+          <div class='colums row'>
+            <div class='item info'>
+			<img class='icon' src='./images/account_circle_FILL0_wght300_GRAD0_opsz48.svg' alt='account icon'>
+			<h3>Discord-Name</h3>
+			 <p>$dname</p>
+            </div>
+			<div class='item info'>
+			<img class='icon' src='./images/home_pin_FILL0_wght300_GRAD0_opsz48.svg' alt='adress icon'>
+			<h3>Adresse</h3>
+			 <p>$adresse</p>
+            </div>
+			<div class='item info'>
+			<img class='icon' src='./images/event_note_FILL0_wght300_GRAD0_opsz48.svg' alt='list icon'>
+			<h3>Wishlist</h3>
+			 <p><a href='$wishlist'>$wishlist</a></p>
+            </div>
+			<div class='item info'>
+			<img class='icon' src='./images/favorite_FILL0_wght300_GRAD0_opsz48.svg' alt='heart icon'>
+			<h3>Lieblingsdinge</h3>
+			 <p>$favs</p>
+            </div>
+			<div class='item info'>
+			<img class='icon' src='./images/sentiment_satisfied_FILL0_wght300_GRAD0_opsz48.svg' alt='smiling face icon'>
+			<h3>Interessen</h3>
+			 <p>$interesse</p>
+            </div>
+			<div class='item info'>
+			<img class='icon' src='./images/cancel_FILL0_wght300_GRAD0_opsz48.svg' alt='cancel icon'>
+			<h3>Abneigungen/Allergien</h3>
+			 <p>$notlike</p>
+            </div>
+          </div>
+      </div>
+    </div>";
+
+		// echo '<h3>Interessen</h3>';
+		// echo "<p>$interesse</p>";
+		// echo '<h3>Lieblingsdinge</h3>';
+		// echo "<p>$favs</p>";
+		// echo '<h3>Abneigungen/Allergien</h3>';
+		// echo "<p>$notlike</p>";
 
 
-		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-			echo "Mail wurde angegeben!";
+		// if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		// 	echo "Mail wurde angegeben!";
 
 
-			// TRACKING FELD EINBLENDEN
-		}
+		// 	// TRACKING FELD EINBLENDEN
+		// }
 
-		if ($cookie) {
-			echo '<a href="wichtel.php?delcookie=1">Cookie löschen</a>';
-		}
+		// if ($cookie) {
+		// 	echo '<a href="wichtel.php?delcookie=1">Cookie löschen</a>';
+		// }
 	}
 	?>
 

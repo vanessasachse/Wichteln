@@ -215,13 +215,14 @@ input[type="checkbox"] {
     background:#000;
     color: #f4f4f4;
     text-align:center;
-    opacity:0;
+    display:none;
     transition:.3s opacity; 
     font-size: 1.6rem;
   }
 
   .tooltip:hover:before {
     display:block;
+    transition:.3s opacity;
     opacity:1;
   }
 .help {
