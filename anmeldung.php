@@ -1,6 +1,6 @@
 <?php 
 require 'admin/config.php';
-if ($REGCLOSED) {
+if (($REGCLOSED) || (file_exists('admin/.rolled'))) {
   Header("Location:closed.html");
 }
  ?>

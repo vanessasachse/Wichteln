@@ -34,6 +34,7 @@ if ($mysqli->connect_errno) {
 
 
 $res = selectsql("SELECT teilnehmer from zuweisungen where teilnehmer='$code'");
+$rolled = checkrolled();
 $row = $res->fetch_assoc();
 if (is_null($row)) {
   showerr("CODE UNGÜLTIG!", "Gefettfingert? Versuch’s einfach nochmal.", "<img src='./images/gifs/type-computer.gif' width='160%'>");

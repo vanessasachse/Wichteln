@@ -17,13 +17,12 @@
 	require 'admin/config.php';
 	require 'admin/functions.php';
 	$cookie = 0;
+	
 
 	if ($_GET['delcookie']) {
 		setcookie("wichtelcode", "", time() - 3600);
 		Header("Location:wichtel.php");
 	}
-
-
 
 	if (!isset($_POST['code']) && (!isset($_COOKIE['wichtelcode']))) {
 
@@ -66,7 +65,7 @@
 		if ($mysqli->connect_errno) {
 			die('mysqli connection error: ' . $mysqli->connect_error);
 		}
-
+		$rolled = checkrolled();
 		$code = $mysqli->real_escape_string($code);
 		$res = selectsql("SELECT * from zuweisungen where teilnehmer='$code'");
 		$row = $res->fetch_assoc();
@@ -79,9 +78,16 @@
 		}
 
 		if (is_null($wichtel)) {
-			showerr("NICHT SO SCHNELL", "Die Wichtel wurden noch nicht zugeteilt!<br>Am <strong>$ROLLDATE</strong> um <strong>$ROLLTIME Uhr</strong> wird dir dein Wichtel zugeteilt! ❄", "<img src='./images/gifs/spongebob-cant-wait.gif' width='120%'>");
+			if ($rolled) {
+				
+				showerr("ZU SPÄT ☹", "Anscheinend hastt du das Anmeldeformular nicht rechtzeitig ausgefüllt.<br>Die Wichtel wurden bereits zugeteilt!", "<img src='./images/gifs/kermit-the-frog-looking-for-directions.gif' width='160%'>");
+				
+			} else {
+				showerr("NICHT SO SCHNELL", "Die Wichtel wurden noch nicht zugeteilt!<br>Am <strong>$ROLLDATE</strong> um <strong>$ROLLTIME Uhr</strong> wird dir dein Wichtel zugeteilt! ❄", "<img src='./images/gifs/spongebob-cant-wait.gif' width='120%'>");
+			}
 			exit();
 		}
+
 
 
 		///WICHTEL INFO
@@ -156,13 +162,12 @@
 			<div class='item info'>
 			<img class='icon' src='./images/event_note_FILL0_wght300_GRAD0_opsz48.svg' alt='list icon'>
 			<h3>Wishlist</h3>";
-			if (filter_var($wishlist, FILTER_VALIDATE_URL)) {
-				echo "<p><a href='$wishlist' target='_blank'>$wishlist</a></p>";
-			}
-			else {
-				echo" <p>$wishlist</p>";
-			}
-            echo "</div>
+		if (filter_var($wishlist, FILTER_VALIDATE_URL)) {
+			echo "<p><a href='$wishlist' target='_blank'>$wishlist</a></p>";
+		} else {
+			echo " <p>$wishlist</p>";
+		}
+		echo "</div>
 			<div class='item info'>
 			<img class='icon' src='./images/favorite_FILL0_wght300_GRAD0_opsz48.svg' alt='heart icon'>
 			<h3>Lieblingsdinge</h3>

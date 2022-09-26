@@ -18,6 +18,11 @@ if (checkrolled() && !$ALLOWREROLL) {
 	echo "Wichtel wurden bereits zugeteilt!\n";
 	exit();
 }
+elseif (checkrolled() && $ALLOWREROLL) {
+	$sql="UPDATE zuweisungen SET wichtel=null";
+	$mysqli->query($sql);
+}
+
 
 $anzahl = count($teilnehmer);
 if ($anzahl <=1 ) {
@@ -57,6 +62,5 @@ while ($err) {
 	}
 }
 $mysqli->close;
-
-
+file_put_contents('.rolled', '');
 ?>
