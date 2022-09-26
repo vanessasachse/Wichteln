@@ -98,7 +98,7 @@
         display: block;
         margin-left: 0;
     }
-    .wichteltracking {
+    .wichteltracking, .trackingsent {
         width: 58%;
     }
 
