@@ -3,7 +3,13 @@
         display:none;
     }
 }
-@media (max-width: 1100px){
+@media (max-width: 1329px){
+    .form.teilnehmer {
+        width: 121%;
+        padding-left: 171px;
+      }
+}
+@media (max-width: 1130px){
     h1 {
         font-size: 32px;
     }
@@ -14,9 +20,19 @@
         margin-top: 5px;
         margin-bottom: 35px;
 }
+.error {
+    grid-template-columns: 5% 1fr 6%;
 }
-
-@media (max-width: 550px){
+}
+@media (max-width: 838px){
+    .kermit {
+            width: 100%;
+    }
+    .spongebob {
+        width:100%;
+    }
+}
+@media (max-width: 650px){
    .colums {
     flex-direction: column;
    }
@@ -40,4 +56,46 @@
     .btn-block {
         margin-top: 5px;
         margin-bottom: 35px;
+}
+    .form.teilnehmer {
+    width: 121%;
+    padding-left: 40px;
+  }
+  .error {
+    margin-left: 26px;
+  }
+  
+}
+
+@media (max-width: 550px){
+    a > .backImg {
+        width: 29%;
+        margin: 0px 5px 5px 0;
+    }
+    .back {
+        margin: 10px 0;
+    }
+    div > p, a {
+        font-size: 1.4rem;
+}
+@media (max-width: 392px){
+    .form.teilnehmer{
+    width: 85%;
+    margin-right: 55px;
+    padding-left: 10px;
+  }
+}
+@media (max-width:340px){
+    .teilnehmer > form {
+        padding: 20px
+    }
+    .error {
+        margin-left:0;
+    }
+}
+@media (max-width:310px){
+ 
+    .codeInput {
+        width: calc(100% - 110px);
+      }
 }

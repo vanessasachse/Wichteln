@@ -74,12 +74,12 @@
 		$teilnehmer = $row['teilnehmer'];
 
 		if (is_null($teilnehmer)) {
-			showerr("FALSCHER TEILNEHMERCODE", "Entweder du hast dich vertippt, oder dir wurde noch kein Wichtel zugeteilt!", "<img src='./images/gifs/kermit-the-frog-looking-for-directions.gif' width='160%'>");
+			showerr("FALSCHER TEILNEHMERCODE", "Entweder du hast dich vertippt, oder dir wurde noch kein Wichtel zugeteilt!", "<img class='kermit' src='./images/gifs/kermit-the-frog-looking-for-directions.gif' width='160%'>");
 			exit();
 		}
 
 		if (is_null($wichtel)) {
-			showerr("NICHT SO SCHNELL", "Die Wichtel wurden noch nicht zugeteilt!<br>Am <strong>$ROLLDATE</strong> um <strong>$ROLLTIME Uhr</strong> wird dir dein Wichtel zugeteilt! ❄", "<img src='./images/gifs/spongebob-cant-wait.gif' width='120%'>");
+			showerr("NICHT SO SCHNELL", "Die Wichtel wurden noch nicht zugeteilt!<br>Am <strong>$ROLLDATE</strong> um <strong>$ROLLTIME Uhr</strong> wird dir dein Wichtel zugeteilt! ❄", "<img class='spongebob' src='./images/gifs/spongebob-cant-wait.gif' width='120%'>");
 			exit();
 		}
 
