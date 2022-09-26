@@ -217,13 +217,12 @@
 <script type="text/javascript">
 
 var code = $("#mycode").val();
-var dname = $("#dname").text();
 function testfunc(){
 
 tracking = $("#trackcode").val();
 
-  $.post("sendmail.php", {code: code, tracking: tracking, dname: dname}, function(payload) {
-	alert(payload);
+  $.post("sendmail.php", {code: code, tracking: tracking}, function(payload) {
+
  });
 
  
