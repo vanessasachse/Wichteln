@@ -189,16 +189,17 @@
 
 			if (!$trackingsent) {
 				echo "
-		   <form action='#' method='post'>
-		   <label class='smallerlabel' for='trackcode'>Trackingcode</label>
+		  <!-- <form action='#' method='post'> -->
+		   <label id='trackingcodelabel' class='smallerlabel' for='trackcode'>Trackingcode</label>
 			 <input class='trackingcode' id='trackcode' type='text' name='trackcode' required pattern=\"\w{3,}\" />";
 				if (!$cookie) {
 					echo " <input class='hidden'  name='code' value=\"$code\" />";
 				}
 				echo "<div class='item btn-block btn-tracking'>
-		   		<button type='submit'>Absenden</button>
+		   		<button id='sendtrack' onClick=\"testfunc('dominik.dederichs@knauber.de', 'test123', 'test123')\">Absenden</button>
 			 </div>
-			 </form>";
+			<!--  </form>-->";
+			echo "<p id='toll' style='display: none' class='trackingsent'>Du hast deinem Wichtel die Trackingnummer gesendet, toll!</p>";
 			} else {
 				echo "<p class='trackingsent'>Du hast deinem Wichtel die Trackingnummer gesendet, toll!</p>";
 			}
@@ -213,6 +214,28 @@
 	}
 
 	?>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script type="text/javascript">
+
+
+function testfunc(email, tracking, dname){
+
+  $.post("sendmail.php", {email: email}, function(payload) {
+	//alert(payload);
+ });
+
+ $('.trackingcode').fadeOut();
+ $('#sendtrack').fadeOut();
+ $('#trackingcodelabel').fadeOut();
+ $('.btn-tracking').hide();
+ $('#toll').fadeIn();
+
+}
+
+</script>
+
+
+
 </body>
 
 </html>
