@@ -82,7 +82,7 @@
 		if (is_null($wichtel)) {
 			if (checkrolled()) {
 				
-				showerr("ZU SPÄT 😭", "Anscheinend hastt du das Anmeldeformular nicht rechtzeitig ausgefüllt.<br>Die Wichtel wurden bereits zugeteilt!", "<img src='./images/gifs/kermit-the-frog-looking-for-directions.gif' width='160%'>");
+				showerr("ZU SPÄT 😭", "Anscheinend hast du das Anmeldeformular nicht rechtzeitig ausgefüllt.<br>Die Wichtel wurden bereits zugeteilt!", "<img class='kermit' src='./images/gifs/sad-pablo-lonely.gif' width='110%'>");
 				
 			} else {
 				showerr("NICHT SO SCHNELL", "Die Wichtel wurden noch nicht zugeteilt!<br>Am <strong>$ROLLDATE</strong> um <strong>$ROLLTIME Uhr</strong> wird dir dein Wichtel zugeteilt! ❄", "<img class='spongebob' src='./images/gifs/spongebob-cant-wait.gif' width='120%'>");
@@ -146,11 +146,11 @@
 		<div class='image'>
 		  <img src='./images/christmas-celebration.png' alt='santa flying over house'>
 		  </div>
-		<div class='form teilnehmer'>
+		<div class='form teilnehmer padding-mobile'>
           <div class='banner'>
             <h1>INFORMATIONEN ZU DEINEM WICHTEL</h1>
           </div>
-          <div class='colums row'>
+          <div class='colums row mobile'>
             <div class='item info'>
 			<img class='icon' src='./images/account_circle_FILL0_wght300_GRAD0_opsz48.svg' alt='account icon'>
 			<h3>Discord-Name</h3>
@@ -190,7 +190,7 @@
 			echo "<div class='subbanner'>
 			 <h2>DER WEIHNACHTSMANN KANN KOMMEN!</h2>
 		   </div>
-		   <div class='item'>
+		   <div class='item subbanner-mobile-text'>
 		   <p class='wichteltracking'>Du hast das perfekte Geschenk für deinen Wichtel verschickt? Super! <br>
 		   Lass die Trackingnummer dazu hier und wir benachrichtigen deinen Wichtel, dass sein Wichtelgeschenk auf dem Weg ist!  🎁</p>";
 
