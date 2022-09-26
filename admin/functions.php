@@ -44,7 +44,7 @@ function setwichtel($teilnehmer, $wichtel)
   $sql = "UPDATE zuweisungen set wichtel='$wichtel' where teilnehmer='$teilnehmer'";
 
   if ($mysqli->query($sql) === TRUE) {
-    echo "$wichtel => $teilnehmer\n";
+    echo "$teilnehmer => $wichtel\n";
   } else {
     echo "Error: " . $sql . "<br>" . $mysqli->error;
   }
