@@ -65,7 +65,6 @@
 		if ($mysqli->connect_errno) {
 			die('mysqli connection error: ' . $mysqli->connect_error);
 		}
-		$rolled = checkrolled();
 		$code = $mysqli->real_escape_string($code);
 		$res = selectsql("SELECT * from zuweisungen where teilnehmer='$code'");
 		$row = $res->fetch_assoc();
@@ -78,9 +77,9 @@
 		}
 
 		if (is_null($wichtel)) {
-			if ($rolled) {
+			if (checkrolled()) {
 				
-				showerr("ZU SPÄT ☹", "Anscheinend hastt du das Anmeldeformular nicht rechtzeitig ausgefüllt.<br>Die Wichtel wurden bereits zugeteilt!", "<img src='./images/gifs/kermit-the-frog-looking-for-directions.gif' width='160%'>");
+				showerr("ZU SPÄT 😭", "Anscheinend hastt du das Anmeldeformular nicht rechtzeitig ausgefüllt.<br>Die Wichtel wurden bereits zugeteilt!", "<img src='./images/gifs/kermit-the-frog-looking-for-directions.gif' width='160%'>");
 				
 			} else {
 				showerr("NICHT SO SCHNELL", "Die Wichtel wurden noch nicht zugeteilt!<br>Am <strong>$ROLLDATE</strong> um <strong>$ROLLTIME Uhr</strong> wird dir dein Wichtel zugeteilt! ❄", "<img src='./images/gifs/spongebob-cant-wait.gif' width='120%'>");
