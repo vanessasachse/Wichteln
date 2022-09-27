@@ -165,8 +165,8 @@ input[type="checkbox"] {
 a > img {
     margin-top: 0;
 }
-.colums div {
-    width: 27%;
+.info {
+    width: 27%!important;
 }
 div.item.info {
     display: grid;
