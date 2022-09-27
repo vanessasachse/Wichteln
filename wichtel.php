@@ -196,7 +196,7 @@
 
 			if (!$trackingsent) {
 				echo "
-		   <form action='#' method='post'>
+		   <form class='emailtrack-padding' action='#' method='post'>
 		   <label class='smallerlabel' for='trackcode'>Trackingcode</label>
 			 <input class='trackingcode' id='trackcode' type='text' name='trackcode' required pattern=\"\w{3,}\" />";
 				if (!$cookie) {
