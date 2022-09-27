@@ -165,8 +165,11 @@ input[type="checkbox"] {
 a > img {
     margin-top: 0;
 }
+.info {
+    width: 27%!important;
+}
 .colums div {
-    width: 27%;
+    width: 48%;
 }
 div.item.info {
     display: grid;
