@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./src/style.css">
   <link rel="stylesheet" href="./src/universal-styles.css">
+  <link rel="stylesheet" href="./src/mobile_submit.css">
+  
   <link rel="icon" type="image/png" href="/images/favicon/favicon-32x32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16">
   <link rel="apple-touch-icon" type="image/png" href="/images/favicon/apple-touch-icon.png" sizes="180x180">
@@ -42,7 +44,7 @@
   $rolled = checkrolled();
   $row = $res->fetch_assoc();
   if (is_null($row)) {
-    showerr("CODE UNGÜLTIG!", "Gefettfingert? Versuch’s einfach nochmal.", "<img src='./images/gifs/type-computer.gif' width='160%'>");
+    showerr("CODE UNGÜLTIG!", "Gefettfingert? Versuch’s einfach nochmal.", "<img class='cat' src='./images/gifs/type-computer.gif' width='160%'>");
   }
 
 
@@ -56,7 +58,7 @@
   if (in_array($code, $usedcodes)) {
     showerr("UH, OH. DU BIST SCHON FÜR’S 
   WICHTELN EINGETRAGEN!", "Hast du nach <a href='wichtel.php'>dieser Seite</a> gesucht? <br>
-  Falls du einfach wissen wolltest, was passiert: Dies. Spannend, nicht wahr?", "<img src='./images/gifs/kermit-the-frog-looking-for-directions.gif' width='160%'>");
+  Falls du einfach wissen wolltest, was passiert: Dies. Spannend, nicht wahr?", "<img class='kermit' src='./images/gifs/kermit-the-frog-looking-for-directions.gif' width='160%'>");
   }
 
 
@@ -78,12 +80,12 @@ VALUES ('$code', '$dname', '$wishlist', '$adresse', '$interesse','$favs', '$notl
   if ($mysqli->query($sql) === TRUE) {
     echo '<div class="container">
   <div class="image">
-    <img src="./images/christmas-decoration.png" alt="girl decorating a christmas tree">
+    <img class="sideimg" src="./images/christmas-decoration.png" alt="girl decorating a christmas tree">
   </div>';
     echo "<div class='wrapper'><div class='test'><div class='msg'><h1>DANKE, DU BIST NUN FÜR DAS 
   WICHTELN EINGETRAGEN!</h1>";
     echo "<div class='back'><a href=anmeldung.php><img src='./images/expand_circle_down_FILL0_wght300_GRAD0_opsz48.svg'>Zurück</a></div><div><p>Am <strong>$ROLLDATE</strong> um <strong>$ROLLTIME Uhr</strong> wird dir dein Wichtel zugeteilt! ❄ <br>
-  Ab diesem Zeitpunkt kannst du dir die Informationen zu deinem Wichtel jederzeit unter <br><a href='wichtel.php'>diesem Link</a> anschauen.</p></div><div class='gif'><img src='./images/gifs/fist.gif' width='160%'></div></div></div></div></div>";
+  Ab diesem Zeitpunkt kannst du dir die Informationen zu deinem Wichtel jederzeit unter <br><a href='wichtel.php'>diesem Link</a> anschauen.</p></div><div class='gif'><img class='party' src='./images/gifs/fist.gif' width='160%'></div></div></div></div></div>";
   } else {
     echo "Error: " . $sql . "<br>" . $mysqli->error;
   }
