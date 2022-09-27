@@ -166,9 +166,9 @@ a > img {
     margin-top: 0;
 }
 .info {
-    width: 27%!important;
+    width: 27%;
 }
-.colums div {
+.front div {
     width: 48%;
 }
 div.item.info {

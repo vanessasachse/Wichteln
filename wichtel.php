@@ -38,7 +38,7 @@
           <div class='banner'>
             <h1>INFORMATIONEN ZU DEINEM WICHTEL</h1>
           </div>
-          <div class='colums row'>
+          <div class='colums row front'>
             <div class='item'>
               <label for='code'>Dein Teilnehmercode <span>*</span></label>
               <input class='codeInput' id='code' type='text' name='code' required/>
