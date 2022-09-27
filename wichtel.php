@@ -146,7 +146,7 @@
             <div class='item info'>
 			<img class='icon' src='./images/account_circle_FILL0_wght300_GRAD0_opsz48.svg' alt='account icon'>
 			<h3>Discord-Name</h3>
-			 <p>$dname</p>
+			 <p id='dname'>$dname</p>
             </div>
 			<div class='item info'>
 			<img class='icon' src='./images/home_pin_FILL0_wght300_GRAD0_opsz48.svg' alt='adress icon'>
@@ -189,17 +189,16 @@
 
 			if (!$trackingsent) {
 				echo "
-		  <!-- <form action='#' method='post'> -->
+		   <form action=\"javascript:testfunc()\" > 
 		   <label id='trackingcodelabel' class='smallerlabel' for='trackcode'>Trackingcode</label>
 			 <input class='trackingcode' id='trackcode' type='text' name='trackcode' required pattern=\"\w{3,}\" />";
-				if (!$cookie) {
-					echo " <input class='hidden'  name='code' value=\"$code\" />";
-				}
+				
+					echo " <input class='hidden' id='mycode'  name='code' value=\"$code\" />";
+				
 				echo "<div class='item btn-block btn-tracking'>
-		   		<button id='sendtrack' onClick=\"testfunc('dominik.dederichs@knauber.de', 'test123', 'test123')\">Absenden</button>
+		   		<button id='sendtrack'>Absenden</button>
 			 </div>
 			<!--  </form>-->";
-			echo "<p id='toll' style='display: none' class='trackingsent'>Du hast deinem Wichtel die Trackingnummer gesendet, toll!</p>";
 			} else {
 				echo "<p class='trackingsent'>Du hast deinem Wichtel die Trackingnummer gesendet, toll!</p>";
 			}
@@ -217,18 +216,22 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script type="text/javascript">
 
+var code = $("#mycode").val();
+function testfunc(){
 
-function testfunc(email, tracking, dname){
+tracking = $("#trackcode").val();
 
-  $.post("sendmail.php", {email: email}, function(payload) {
-	//alert(payload);
+  $.post("sendmail.php", {code: code, tracking: tracking}, function(payload) {
+
  });
 
- $('.trackingcode').fadeOut();
- $('#sendtrack').fadeOut();
- $('#trackingcodelabel').fadeOut();
+ 
+$(".wichteltracking").append("<p class='trackingsent'>Du hast deinem Wichtel die Trackingnummer gesendet, toll!</p>");
+ $('.trackingcode').hide();
+ $('#sendtrack').hide();
+ $('#trackingcodelabel').hide();
  $('.btn-tracking').hide();
- $('#toll').fadeIn();
+
 
 }
 
