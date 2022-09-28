@@ -13,7 +13,7 @@
 @media (max-width: 550px){
     
     label {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
     }
     form {
         max-width: 100%;
@@ -37,7 +37,7 @@
         margin-left: 0;
     }
     input, textarea {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         padding: 10px;
     }
 }
