@@ -12,6 +12,6 @@ $SENDMAIL=0;
 $MAILFROM='wichteln@gurke.cc';
 $MAILNAME = 'Wichtelaktion';
 $EXCLUDES = [
-    "A" => "B",
-    "B" => "A"
+    "A" => ["B"],
+    "B" => ["A"]
 ];

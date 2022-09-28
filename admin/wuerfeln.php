@@ -43,11 +43,20 @@ while ($err) {
 			$rand = rand(0,$rmax);
 
 			$c++;
-			if (($teilnehmer[$i] != $wichtel[$rand] && $wichtel[$rand] != "")  && ($EXCLUDES[$teilnehmer[$i]] != $wichtel[$rand])) {		
-				setwichtel($teilnehmer[$i], $wichtel[$rand]);
+			if (($teilnehmer[$i] != $wichtel[$rand] && $wichtel[$rand] != "")  && (!isset($EXCLUDES[$teilnehmer[$i]]) || !(in_array($wichtel[$rand], $EXCLUDES[$teilnehmer[$i]])))) {		
+				if (setwichtel($teilnehmer[$i], $wichtel[$rand])){
+					echo $teilnehmer[$i] . "=>" .  $wichtel[$rand] ."\n";
+				}
+				else {
+					echo "Exit ...\n";
+					exit();
+				}
+
 			}
 			if ($c==1000) {
-				echo "Error.\n";
+				echo "\n\nTimeout Error, Re-Roll...\n\n";
+				$sql="UPDATE zuweisungen SET wichtel=null";
+				$mysqli->query($sql);
 				$err=1;
 				break;
 			}
