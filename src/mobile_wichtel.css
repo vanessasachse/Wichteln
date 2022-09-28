@@ -1,9 +1,9 @@
+
 @media (max-width:1580px) {
     .info {
         width: 34%;
       }
 }
-
 @media (max-width: 1437px){
     .image {
         display:none;
@@ -100,9 +100,6 @@ h2 {
 }
 
 @media (max-width: 550px){
-    .container {
-        grid-template-rows: 30px 1fr 1fr;
-    }
     .wrapper {
         grid-row: 1/3;
     }
