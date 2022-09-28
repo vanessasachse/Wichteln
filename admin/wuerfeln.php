@@ -41,11 +41,12 @@ while ($err) {
 	for ($i=0; $i <=  $anzahl-1; $i++) { 
 		do {
 			$rand = rand(0,$rmax);
-
+			$validPair=0;
 			$c++;
 			if (($teilnehmer[$i] != $wichtel[$rand] && $wichtel[$rand] != "")  && (!isset($EXCLUDES[$teilnehmer[$i]]) || !(in_array($wichtel[$rand], $EXCLUDES[$teilnehmer[$i]])))) {		
 				if (setwichtel($teilnehmer[$i], $wichtel[$rand])){
 					echo $teilnehmer[$i] . "=>" .  $wichtel[$rand] ."\n";
+					$validPair=1;
 				}
 				else {
 					echo "Exit ...\n";
@@ -62,7 +63,7 @@ while ($err) {
 			}
 			$err=0;
 
-		} while ($teilnehmer[$i] == $wichtel[$rand] || $wichtel[$rand] == "");
+		} while (!$validPair);
 		unset($wichtel[$rand]);
 
 		$wichtel = array_values($wichtel);
