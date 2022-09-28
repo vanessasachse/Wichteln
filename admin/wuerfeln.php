@@ -43,7 +43,7 @@ while ($err) {
 			$rand = rand(0,$rmax);
 
 			$c++;
-			if ($teilnehmer[$i] != $wichtel[$rand] && $wichtel[$rand] != "") {
+			if (($teilnehmer[$i] != $wichtel[$rand] && $wichtel[$rand] != "")  && ($EXCLUDES[$teilnehmer[$i]] != $wichtel[$rand])) {		
 				setwichtel($teilnehmer[$i], $wichtel[$rand]);
 			}
 			if ($c==1000) {
