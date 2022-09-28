@@ -79,11 +79,18 @@ position: relative;
     width: 100%;
     padding-left: 40px;
   }
-//p width einfügen
-p {
-        width: 227%;
+  div.item.info {
+    width: 150%;
+  }
+.subbanner-mobile-text{
+    width: 150%;
 }
-  
+.wichteltracking {
+    width: 100%;
+}
+h2 {
+    width: 150%;
+}
 }
 
 @media (max-width: 550px){
@@ -100,6 +107,16 @@ p {
     div > p, a {
         font-size: 1.4rem;
 }
+div.item.info {
+    width: 120%;
+  }
+.subbanner-mobile-text{
+    width: 120%;
+}
+.wichteltracking {
+    width: 120%;
+}
+}
 @media (max-width: 484px){
 .subbanner {
     max-width: 65%;
@@ -107,7 +124,7 @@ p {
   h2 {
     font-size: 2.4rem;
   }
-}}
+}
 @media (max-width: 430px){
    
     .btn-tracking {
@@ -115,7 +132,7 @@ p {
         margin-left: 0;
     }
     .wichteltracking, .trackingsent {
-        width: 58%;
+        width: 90%;
     }
     
 @media (max-width: 392px){
@@ -128,7 +145,26 @@ p {
     width: 105%;
     margin-right: 0px;
   }
- 
+  div.item.info {
+    width: 100%;
+  }
+.subbanner-mobile-text{
+    width: 100%;
+}
+h2 {
+    padding-left:10px;
+}
+.wichteltracking {
+    width: 120%;
+    padding-left:10px;
+}
+.trackingsent {
+    width: 100%;
+    padding-left:10px;
+}
+.emailtrack-padding {
+    padding-left: 10px;
+}
 }
 @media (max-width:340px){
     .teilnehmer > form {

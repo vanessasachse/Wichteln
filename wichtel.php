@@ -38,7 +38,7 @@
           <div class='banner'>
             <h1>INFORMATIONEN ZU DEINEM WICHTEL</h1>
           </div>
-          <div class='colums row'>
+          <div class='colums row front'>
             <div class='item'>
               <label for='code'>Dein Teilnehmercode <span>*</span></label>
               <input class='codeInput' id='code' type='text' name='code' required/>
@@ -196,7 +196,7 @@
 
 			if (!$trackingsent) {
 				echo "
-		   <form action='#' method='post'>
+		   <form class='emailtrack-padding' action='#' method='post'>
 		   <label class='smallerlabel' for='trackcode'>Trackingcode</label>
 			 <input class='trackingcode' id='trackcode' type='text' name='trackcode' required pattern=\"\w{3,}\" />";
 				if (!$cookie) {

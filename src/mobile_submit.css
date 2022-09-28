@@ -8,7 +8,11 @@
     .wrapper {
             grid-column: 2 / 4;
             margin-left:0;
-    }}
+    }
+    .closed {
+        height: auto;
+    }
+}
 @media (max-width: 1130px){
     h1 {
         font-size: 32px;

@@ -86,10 +86,7 @@ form {
     flex-direction:row;
     flex-wrap:wrap;
     }
-.colums div {
-    width:48%;
-    }
-  
+
 .btn-block {
     margin-top: 25px;
     align-self: end;
@@ -168,8 +165,11 @@ input[type="checkbox"] {
 a > img {
     margin-top: 0;
 }
-.colums div {
+.info {
     width: 27%;
+}
+.front div {
+    width: 48%;
 }
 div.item.info {
     display: grid;
