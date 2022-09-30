@@ -3,7 +3,7 @@
 require 'config.php';
 require 'functions.php';
 if (isset($argv[2])) {
-  $CODELENGTH = $argv[2];
+  $CODEBLOCKS = $argv[2];
 }
 
 if (isset($argv[1])) {
@@ -20,7 +20,7 @@ if ($mysqli->connect_errno) {
 
 for ($i=0; $i < $ANZAHL; $i++) { 
 	
-	$code = randomCode();
+	$code = generateKey();
 	$sql = "INSERT INTO zuweisungen (teilnehmer)
   VALUES ('$code')";
 

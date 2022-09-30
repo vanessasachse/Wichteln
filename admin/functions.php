@@ -64,10 +64,19 @@ function randomCode()
   return implode($pass); //turn the array into a string
 }
 
-function validateTrackingCode($code){
+function generateKey()
+{
+  global $CODEBLOCKS;
+  $uniqueKey = strtoupper(substr(hash('sha256',microtime()), rand(0, 5), $CODEBLOCKS * 8));
+  $uniqueKey  = implode("-", str_split($uniqueKey, 8));
+  return $uniqueKey;
+}
+
+
+function validateTrackingCode($code)
+{
   $pattern = "/^\w+$/";
   return preg_match("$pattern", $code);
-
 }
 
 function sendTrackingMail($to, $tracking, $discordname)
@@ -107,14 +116,14 @@ function checkbanned($ip)
 {
   $banfile = 'admin/.banip';
   if (file_exists($banfile)) {
-  $banned = 0;
-  $file = fopen($banfile, 'r');
-  while (($buffer = fgets($file)) !== false) {
-    if (strpos($buffer, $ip) !== false) {
-      $banned = 1;
+    $banned = 0;
+    $file = fopen($banfile, 'r');
+    while (($buffer = fgets($file)) !== false) {
+      if (strpos($buffer, $ip) !== false) {
+        $banned = 1;
+      }
     }
+    fclose($file);
+    return $banned;
   }
-  fclose($file);
-  return $banned;
-}
 }
