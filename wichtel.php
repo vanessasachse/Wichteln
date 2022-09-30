@@ -80,7 +80,7 @@
 
 		if (is_null($teilnehmer)) {
 			logFail($_SERVER['REMOTE_ADDR'], $code);
-			showerr("FALSCHER TEILNEHMERCODE", "Entweder du hast dich vertippt, oder dir wurde noch kein Wichtel zugeteilt!", "<img class='kermit' src='./images/gifs/kermit-the-frog-looking-for-directions.gif' width='160%'>");
+			showerr("FALSCHER TEILNEHMERCODE", "Gefettfingert? Versuch’s einfach nochmal.", "<img class='cat' src='./images/gifs/type-computer.gif' width='160%'>");
 			exit();
 		}
 
