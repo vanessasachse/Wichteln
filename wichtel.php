@@ -20,6 +20,10 @@
 	require 'admin/config.php';
 	require 'admin/functions.php';
 	$cookie = 0;
+	if (checkbanned($_SERVER['REMOTE_ADDR'])) {
+		showerr("ZU OFT VERSUCHT", "Versuch's später nochmal</body></html>", null);
+		exit();
+	  }
 	
 
 	if ($_GET['delcookie']) {
@@ -75,6 +79,7 @@
 		$teilnehmer = $row['teilnehmer'];
 
 		if (is_null($teilnehmer)) {
+			logFail($_SERVER['REMOTE_ADDR'], $code);
 			showerr("FALSCHER TEILNEHMERCODE", "Entweder du hast dich vertippt, oder dir wurde noch kein Wichtel zugeteilt!", "<img class='kermit' src='./images/gifs/kermit-the-frog-looking-for-directions.gif' width='160%'>");
 			exit();
 		}

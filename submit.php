@@ -34,7 +34,7 @@
     header("location:.");
   }
   if (checkbanned($_SERVER['REMOTE_ADDR'])) {
-    showerr("ZU OFT VERSUCHT", "Versuch's später nochmal", null);
+    showerr("ZU OFT VERSUCHT", "Versuch's später nochmal</body></html>", null);
     exit();
   }
 
