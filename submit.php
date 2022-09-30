@@ -33,6 +33,10 @@
   if (!isset($_POST['code'])) {
     header("location:.");
   }
+  if (checkbanned($_SERVER['REMOTE_ADDR'])) {
+    showerr("ZU OFT VERSUCHT", "Versuch's später nochmal", null);
+    exit();
+  }
 
   $mysqli = new mysqli("$DBHOST", "$DBUSER", "$DBPASS", "$DBNAME");
   if ($mysqli->connect_errno) {
@@ -44,6 +48,7 @@
   $rolled = checkrolled();
   $row = $res->fetch_assoc();
   if (is_null($row)) {
+    logFail($_SERVER['REMOTE_ADDR'], $code);
     showerr("CODE UNGÜLTIG!", "Gefettfingert? Versuch’s einfach nochmal.", "<img class='cat' src='./images/gifs/type-computer.gif' width='160%'>");
   }
 

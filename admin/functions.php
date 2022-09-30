@@ -95,3 +95,26 @@ function sendTrackingMail($to, $tracking, $discordname)
 
   mail($to, $subject, $message, implode("\r\n", $headers), "-f $MAILFROM");
 }
+
+function logFail($ip, $code)
+{
+  $file = fopen('admin/fail.log', 'a');
+  $dt = date('Y-m-d H:i:s');
+  fwrite($file, "$dt Falscher Code \"$code\" von IP: $ip\n");
+  fclose($file);
+}
+function checkbanned($ip)
+{
+  $banfile = 'admin/.banip';
+  if (file_exists($banfile)) {
+  $banned = 0;
+  $file = fopen($banfile, 'r');
+  while (($buffer = fgets($file)) !== false) {
+    if (strpos($buffer, $ip) !== false) {
+      $banned = 1;
+    }
+  }
+  fclose($file);
+  return $banned;
+}
+}
