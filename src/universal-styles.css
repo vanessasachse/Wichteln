@@ -73,3 +73,27 @@ p > a {
     top: 0;
     display: inline-block;
 }
+.hidden {
+    display: none;
+}
+
+.editsuccess{
+    animation: editsuccess 2.81225417552045s ease-in-out;
+    opacity: 0;
+
+}
+
+@keyframes editsuccess
+{
+	from {
+		opacity: 1;
+	
+		
+	}
+	to{
+		opacity: 0;
+		
+
+
+	}
+}

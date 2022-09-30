@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule (.*)\.html$ $1.php
+RewriteRule anmeldung$ anmeldung.php
+RewriteRule wichtel$ wichtel.php
+RewriteRule submit$ submit.php
+RewriteRule closed$ closed.html
+RewriteRule edit\/(.*)$ edit.php?code=$1
+ErrorDocument 404 /wichteln/404.html
+ErrorDocument 403 /wichteln/403.html

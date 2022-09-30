@@ -90,7 +90,8 @@ VALUES ('$code', '$dname', '$wishlist', '$adresse', '$interesse','$favs', '$notl
     echo "<div class='wrapper'><div class='test'><div class='msg'><h1>DANKE, DU BIST NUN FÜR DAS 
   WICHTELN EINGETRAGEN!</h1>";
     echo "<div class='back'><a href=anmeldung.php><img src='./images/expand_circle_down_FILL0_wght300_GRAD0_opsz48.svg'>Zurück</a></div><div><p>Am <strong>$ROLLDATE</strong> um <strong>$ROLLTIME Uhr</strong> wird dir dein Wichtel zugeteilt! ❄ <br>
-  Ab diesem Zeitpunkt kannst du dir die Informationen zu deinem Wichtel jederzeit unter <br><a href='wichtel.php'>diesem Link</a> anschauen.</p></div><div class='gif'><img class='party' src='./images/gifs/fist.gif' width='160%'></div></div></div></div></div>";
+  Bis zu diesem Zeitpunkt kannst du deine Daten jederzeit unter deinem persönlichen Link bearbeiten:
+  <input type='text' onClick='this.select()' readonly value='https://wichteln.gurke.cc/edit/$code'></p></div><div class='gif'><img class='party' src='./images/gifs/fist.gif' width='160%'></div></div></div></div></div>";
   } else {
     echo "Error: " . $sql . "<br>" . $mysqli->error;
   }

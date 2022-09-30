@@ -1,0 +1,9 @@
+h1 {
+    font-size: 20em;
+    position: absolute;
+    display: block;
+    margin: 3px auto;
+    left: 50%;
+    margin-left: -250px;
+
+}
