@@ -18,6 +18,7 @@
 <?php
 function gtfo(){
   Header("Location:/");
+  exit();
 }
 require 'admin/config.php';
 require 'admin/functions.php';
