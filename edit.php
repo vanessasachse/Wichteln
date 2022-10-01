@@ -1,3 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bearbeiten</title>
+  <link rel="stylesheet" href="../src/style.css">
+  <link rel="stylesheet" href="../src/mobile_anmeldung.css">
+  <link rel="stylesheet" href="../src/universal-styles.css">
+  <link rel="icon" type="image/png" href="../images/favicon/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="../images/favicon/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" type="image/png" href="../images/favicon/apple-touch-icon.png" sizes="180x180">
+</head>
+
+<body>
 <?php
 function gtfo(){
   Header("Location:/");
@@ -65,23 +82,7 @@ $email = $row['email'];
 
 
 ?>
-<!DOCTYPE html>
-<html>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bearbeiten</title>
-  <link rel="stylesheet" href="../src/style.css">
-  <link rel="stylesheet" href="../src/mobile_anmeldung.css">
-  <link rel="stylesheet" href="../src/universal-styles.css">
-  <link rel="icon" type="image/png" href="../images/favicon/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="../images/favicon/favicon-16x16.png" sizes="16x16">
-  <link rel="apple-touch-icon" type="image/png" href="../images/favicon/apple-touch-icon.png" sizes="180x180">
-</head>
-
-<body>
   <div class="container">
     <div class="image">
       <img src="../images/christmas-decoration.png" alt="girl decorating a christmas tree">
