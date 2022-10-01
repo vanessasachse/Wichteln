@@ -16,6 +16,7 @@
 
 <body>
 <?php
+$updateSuccess=0;
 function gtfo(){
   Header("Location:/");
   exit();
@@ -45,7 +46,7 @@ if (isset($_POST['code'])){
   $sql = "UPDATE teilnehmer SET dname='$dname', wishlist='$wishlist', adresse='$adresse', interesse='$interesse',favs='$favs', notlike='$notlike', email='$email' 
   WHERE code='$code'";
     if ($mysqli->query($sql) === TRUE) {
-      echo "<p class='editsuccess'>Deine Daten wurden erfolgreich aktualisiert!</p>";
+      $updateSuccess=1;
     } else {
       echo "Error: " . $sql . "<br>" . $mysqli->error;
     }
@@ -147,6 +148,11 @@ $email = $row['email'];
         <div class="btn-block">
           <button type="submit">Absenden</button>
         </div>
+        <?php
+        if ($updateSuccess) {
+          echo '<p class="editsuccess">Deine Daten wurden erfolgreich aktualisiert!</p>';
+        }        
+        ?>
       </form>
     </div>
   </div>
