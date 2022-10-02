@@ -19,7 +19,7 @@
 <?php
 $updateSuccess=0;
 function gtfo(){
-  Header("Location:/");
+  Header("Location:javascript:history.back()");
   exit();
 }
 require 'admin/config.php';
@@ -55,7 +55,7 @@ if (isset($_POST['code'])){
 }
 
 
-// if (checkrolled()) gtfo();
+if (checkrolled()) gtfo();
 $code = $mysqli->real_escape_string($code);
 $res = selectsql("SELECT * from teilnehmer where code='$code'");
 $row = $res->fetch_assoc();

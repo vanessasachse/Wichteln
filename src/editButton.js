@@ -1,6 +1,12 @@
 	let code = "";
 
-    document.getElementById("editButton").onclick = function () {
+    document.getElementById("editButton").onclick = function() {
         code = document.getElementById("code").value;
-        location.href = "edit/"+code;
+        if (code != "") {
+            location.href = "edit/"+code;
+        }
+        else {
+            alert("Bitte gib deinen Teilnehmercode ein!")
+        }
+        
     };
