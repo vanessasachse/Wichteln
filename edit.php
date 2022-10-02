@@ -89,7 +89,7 @@ $email = $row['email'];
         <div class="banner">
           <h1>BEARBEITUNG</h1>  
         </div>
-        <div class='back'><a href=../index.html><img src='../images/expand_circle_down_FILL0_wght300_GRAD0_opsz48.svg'>Zurück</a></div>
+        <div class='back'><a href='../wichtel.php'><img src='../images/expand_circle_down_FILL0_wght300_GRAD0_opsz48.svg'>Zurück</a></div>
         
         <div class="colums">
 
@@ -153,6 +153,7 @@ $email = $row['email'];
       </form>
     </div>
   </div>
+
 </body>
 
 </html>

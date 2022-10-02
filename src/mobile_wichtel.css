@@ -1,12 +1,17 @@
-
 @media (max-width:1580px) {
     .info {
         width: 34%;
       }
+      .container {
+        grid-template-columns: 5% 1fr 1fr 6%;
+    }
 }
 @media (max-width: 1437px){
     .image {
         display:none;
+    }
+    .container {
+        grid-template-columns: 5% 1fr 6%;
     }
 }
 @media (max-width: 1329px){
@@ -14,6 +19,7 @@
         width: 121%;
         padding-left: 171px;
       }
+
 }
 @media (max-width: 1130px){
     h1 {
@@ -31,7 +37,9 @@
 }
 .back {
     margin: 10px 0;
-
+}
+.container {
+    grid-template-columns: 5% 1fr 1fr 6%;
 }
 }
 @media (max-width: 838px){
@@ -61,13 +69,13 @@ position: relative;
     flex-direction: column;
    }
    .colums div {
-    width: 170%;
+    width:100%;
    }
    label {
     font-size: 1.4rem;
     }
     button {
-    width: 90px;
+    width: 189px;
     font-size: 1.5rem;
     }
     .checkbox {
@@ -96,6 +104,9 @@ position: relative;
 }
 h2 {
     width: 150%;
+}
+p, p > a {
+    font-size: 1.5rem;
 }
 }
 
@@ -148,7 +159,8 @@ div.item.info {
     }
     div.item.info {
         width: 115%;
-    }}
+    }
+}
     
 @media (max-width: 392px){
    
@@ -176,10 +188,11 @@ h2 {
 .emailtrack-padding {
     padding-left: 10px;
 }
+
 }
 @media (max-width:340px){
     .teilnehmer > form {
-        padding: 20px
+        padding: 20px;
     }
     .error {
         margin-left:0;
@@ -191,6 +204,13 @@ h2 {
       div.item.info {
         width: 86%;
       }
+.form.teilnehmer {
+    padding-left: 0;
+}
+div.item.save {
+    width: 103%;
+}
+}
    
 }
 @media (max-width:310px){

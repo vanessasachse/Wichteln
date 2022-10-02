@@ -65,6 +65,7 @@ a {
     font-size: 1.6rem;
     position: relative;
     top: -3px;
+    cursor: pointer;
 }
 p > a {
     color: #4D61FC;

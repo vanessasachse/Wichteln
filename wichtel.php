@@ -11,11 +11,12 @@
 	<link rel="icon" type="image/png" href="/images/favicon/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16">
     <link rel="apple-touch-icon" type="image/png" href="/images/favicon/apple-touch-icon.png" sizes="180x180">
+	<script src="./src/editButton.js" defer></script> 
 	<title>Informationen zu deinem Wichtel</title>
+	
 </head>
 
 <body>
-
 	<?php
 	require 'admin/config.php';
 	require 'admin/functions.php';
@@ -40,7 +41,7 @@
 		<div class='form teilnehmer'>
         <form action='wichtel.php' method='post'>
           <div class='banner'>
-            <h1>INFORMATIONEN ZU DEINEM WICHTEL</h1>
+            <h1>INFORMATIONEN ANZEIGEN ODER BEARBEITEN</h1>
           </div>
           <div class='colums row front'>
             <div class='item'>
@@ -48,14 +49,18 @@
               <input class='codeInput' id='code' type='text' name='code' required/>
             </div>
 			<div class='item btn-block'>
-            <button type='submit'>Zeig her!</button>
-          </div>
-            <div class='item save'>
-			  <input class='end' id='save' type='checkbox' name='save'/>
-              <label class='end checkbox'  for='save'>Code merken (Setzt einen Cookie)</label>
-            </div>   
+            <button type='submit'>Zeig mir meinen Wichtel!</button>
+		</div>  
+		<div class='item save'>
+		<input class='end' id='save' type='checkbox' name='save'/>
+		<label class='end checkbox'  for='save'>Code merken (Setzt einen Cookie)</label>
+	  </div> 
           </div>
         </form>
+		<div class='edit'>
+		<p>> <a id='editButton'>Eigene Infos bearbeiten</a><br>(Teilnehmercode oben einfügen nicht vergessen!)</p> <!--disable-->
+		
+	  </div>
       </div>
     </div>";
 	} else {
@@ -224,6 +229,7 @@
 		</div>";
 	}
 	?>
+
 </body>
 
 </html>
