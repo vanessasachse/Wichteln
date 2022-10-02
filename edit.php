@@ -64,9 +64,8 @@ $row = $res->fetch_assoc();
 
 $teilnehmer = $row['code'];
 if (is_null($teilnehmer)) {
-  http_response_code(404);
-  include('404.html');
-  exit();
+  logFail($_SERVER['REMOTE_ADDR'], $code);
+  showerr("FALSCHER TEILNEHMERCODE", "Gefettfingert? Versuch’s einfach nochmal.", "<img class='cat' src='./images/gifs/type-computer.gif' width='160%'>");
 }
 else{
   

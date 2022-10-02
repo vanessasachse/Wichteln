@@ -62,7 +62,7 @@
   }
   if (in_array($code, $usedcodes)) {
     showerr("UH, OH. DU BIST SCHON FÜR’S 
-  WICHTELN EINGETRAGEN!", "Hast du nach <a href='wichtel.php'>dieser Seite</a> gesucht? <br>
+  WICHTELN EINGETRAGEN!", "Hast du nach <a href='edit/$code'>dieser Seite</a> gesucht? <br>
   Falls du einfach wissen wolltest, was passiert: Dies. Spannend, nicht wahr?", "<img class='kermit' src='./images/gifs/kermit-the-frog-looking-for-directions.gif' width='160%'>");
   }
 
