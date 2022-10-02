@@ -32,7 +32,7 @@
         margin-top: 5px;
         margin-bottom: 35px;
 }
-    .error {
+    .container.error {
     grid-template-columns: 5% 1fr 6%;
 }
 .back {
@@ -47,6 +47,9 @@
             width: 100%;
     }
     .spongebob {
+        width:100%;
+    }
+    .cat {
         width:100%;
     }
     .mobile {
