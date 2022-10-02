@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../src/style.css">
   <link rel="stylesheet" href="../src/mobile_anmeldung.css">
   <link rel="stylesheet" href="../src/universal-styles.css">
+  <link rel="stylesheet" href="../src/edit.css">
   <link rel="icon" type="image/png" href="../images/favicon/favicon-32x32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="../images/favicon/favicon-16x16.png" sizes="16x16">
   <link rel="apple-touch-icon" type="image/png" href="../images/favicon/apple-touch-icon.png" sizes="180x180">
@@ -77,12 +78,6 @@ $favs = ($row['favs']);
 $notlike = ($row['notlike']);
 $email = $row['email'];
 }
-
-
-
-
-
-
 ?>
 
   <div class="container">
@@ -92,8 +87,10 @@ $email = $row['email'];
     <div class="form">
       <form action="#" method="post">
         <div class="banner">
-          <h1>BEARBEITUNG</h1>
+          <h1>BEARBEITUNG</h1>  
         </div>
+        <div class='back'><a href=../index.html><img src='../images/expand_circle_down_FILL0_wght300_GRAD0_opsz48.svg'>Zurück</a></div>
+        
         <div class="colums">
 
           <div class="item">
@@ -150,7 +147,7 @@ $email = $row['email'];
         </div>
         <?php
         if ($updateSuccess) {
-          echo '<p class="editsuccess">Deine Daten wurden erfolgreich aktualisiert!</p>';
+          echo '<p class="editsuccess">🎉 Deine Daten wurden erfolgreich aktualisiert!</p>';
         }        
         ?>
       </form>

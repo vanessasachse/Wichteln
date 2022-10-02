@@ -1,0 +1,9 @@
+.banner {
+    margin-bottom: 0;
+    height: 91px;
+    align-items: end;
+}
+.back {
+    justify-content: normal;
+    margin-bottom: 45px;
+}
