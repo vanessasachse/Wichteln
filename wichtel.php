@@ -216,7 +216,7 @@
 					echo " <input class='hidden'  name='code' value=\"$code\" />";
 				}
 				echo "<div class='item btn-block btn-tracking'>
-		   		<button type='submit'>Absenden</button>
+		   		<button id='trackingbtn' type='submit'>Absenden</button>
 			 </div>
 			 </form>";
 			} else {

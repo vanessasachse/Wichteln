@@ -218,6 +218,9 @@ font-size: 1.6rem;
     margin-left: 10px;
     margin-top: 0;
 }
+#trackingbtn {
+    width: 120px;
+}
 .smallerlabel {
     font-size: 1.6rem;
 }
