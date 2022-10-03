@@ -44,7 +44,7 @@
   }
 
 
-  $res = selectsql("SELECT teilnehmer from zuweisungen where teilnehmer='$code'");
+  $res = selectsql("SELECT teilnehmer from ${DBPREFIX}_zuweisungen where teilnehmer='$code'");
   $rolled = checkrolled();
   $row = $res->fetch_assoc();
   if (is_null($row)) {
@@ -53,8 +53,8 @@
   }
 
 
-  $sql = "SELECT code from teilnehmer";
-  $res = selectsql("SELECT code from teilnehmer");
+
+  $res = selectsql("SELECT code from ${DBPREFIX}_teilnehmer");
   $usedcodes = array();
   while ($row = $res->fetch_assoc()) {
     $x = $row["code"];
@@ -77,7 +77,7 @@
   $email = $mysqli->real_escape_string($email);
 
 
-  $sql = "INSERT INTO teilnehmer (code, dname, wishlist, adresse, interesse, favs, notlike, email)
+  $sql = "INSERT INTO ${DBPREFIX}_teilnehmer (code, dname, wishlist, adresse, interesse, favs, notlike, email)
 VALUES ('$code', '$dname', '$wishlist', '$adresse', '$interesse','$favs', '$notlike', '$email')";
 
 
@@ -91,7 +91,7 @@ VALUES ('$code', '$dname', '$wishlist', '$adresse', '$interesse','$favs', '$notl
   WICHTELN EINGETRAGEN!</h1>";
     echo "<div class='back'><a href=anmeldung.php><img src='./images/expand_circle_down_FILL0_wght300_GRAD0_opsz48.svg'>Zurück</a></div><div><p>Am <strong>$ROLLDATE</strong> um <strong>$ROLLTIME Uhr</strong> wird dir dein Wichtel zugeteilt! ❄ <br>
   Bis zu diesem Zeitpunkt kannst du deine Daten jederzeit unter deinem persönlichen Link bearbeiten:
-  <input type='text' onClick='this.select()' readonly value='https://wichteln.gurke.cc/edit/$code'></p></div><div class='gif'><img class='party' src='./images/gifs/fist.gif' width='160%'></div></div></div></div></div>";
+  <input type='text' onClick='this.select()' readonly value='https://$SITEURL/edit/$code'></p></div><div class='gif'><img class='party' src='./images/gifs/fist.gif' width='160%'></div></div></div></div></div>";
   } else {
     echo "Error: " . $sql . "<br>" . $mysqli->error;
   }

@@ -7,7 +7,7 @@ if ($mysqli->connect_errno) {
 	die('mysqli connection error: ' . $mysqli->connect_error);
 }
 
-$res = selectsql("SELECT code from teilnehmer");
+$res = selectsql("SELECT code from ${DBPREFIX}_teilnehmer");
 $teilnehmer = array();
 while($row = $res->fetch_assoc()) {
 	$x = $row["code"];
@@ -19,7 +19,7 @@ if (checkrolled() && !$ALLOWREROLL) {
 	exit();
 }
 elseif (checkrolled() && $ALLOWREROLL) {
-	$sql="UPDATE zuweisungen SET wichtel=null";
+	$sql="UPDATE ${DBPREFIX}_zuweisungen SET wichtel=null";
 	$mysqli->query($sql);
 }
 
@@ -56,7 +56,7 @@ while ($err) {
 			}
 			if ($c==1000) {
 				echo "\n\nTimeout Error, Re-Roll...\n\n";
-				$sql="UPDATE zuweisungen SET wichtel=null";
+				$sql="UPDATE ${DBPREFIX}_zuweisungen SET wichtel=null";
 				$mysqli->query($sql);
 				$err=1;
 				break;

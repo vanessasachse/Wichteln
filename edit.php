@@ -44,7 +44,7 @@ if (isset($_POST['code'])){
   $favs = $mysqli->real_escape_string($_POST['like']);
   $notlike = $mysqli->real_escape_string($_POST['notLike']);
   $email = $mysqli->real_escape_string($_POST['email']);
-  $sql = "UPDATE teilnehmer SET dname='$dname', wishlist='$wishlist', adresse='$adresse', interesse='$interesse',favs='$favs', notlike='$notlike', email='$email' 
+  $sql = "UPDATE ${DBPREFIX}_teilnehmer SET dname='$dname', wishlist='$wishlist', adresse='$adresse', interesse='$interesse',favs='$favs', notlike='$notlike', email='$email' 
   WHERE code='$code'";
     if ($mysqli->query($sql) === TRUE) {
       $updateSuccess=1;
@@ -57,7 +57,7 @@ if (isset($_POST['code'])){
 
 if (checkrolled()) gtfo();
 $code = $mysqli->real_escape_string($code);
-$res = selectsql("SELECT * from teilnehmer where code='$code'");
+$res = selectsql("SELECT * from ${DBPREFIX}_teilnehmer where code='$code'");
 $row = $res->fetch_assoc();
 
 

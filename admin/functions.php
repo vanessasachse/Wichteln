@@ -1,5 +1,5 @@
 <?php
-
+require 'config.php';
 function showerr($errmsg, $text, $gif)
 {
   global $mysqli;
@@ -14,8 +14,9 @@ function showerr($errmsg, $text, $gif)
 
 function checkrolled()
 {
+  global $DBPREFIX;
   $rolled = 0;
-  $res = selectsql("SELECT wichtel from zuweisungen");
+  $res = selectsql("SELECT wichtel from ${DBPREFIX}_zuweisungen");
   $check = array();
   while ($row = $res->fetch_assoc()) {
     $x = $row["wichtel"];
@@ -41,7 +42,8 @@ function selectsql($query)
 function setwichtel($teilnehmer, $wichtel)
 {
   global $mysqli;
-  $sql = "UPDATE zuweisungen set wichtel='$wichtel' where teilnehmer='$teilnehmer'";
+  global $DBPREFIX;
+  $sql = "UPDATE ${DBPREFIX}_zuweisungen set wichtel='$wichtel' where teilnehmer='$teilnehmer'";
 
   if ($mysqli->query($sql) === TRUE) {
     return true;

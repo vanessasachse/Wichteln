@@ -81,7 +81,7 @@
 			die('mysqli connection error: ' . $mysqli->connect_error);
 		}
 		$code = $mysqli->real_escape_string($code);
-		$res = selectsql("SELECT * from zuweisungen where teilnehmer='$code'");
+		$res = selectsql("SELECT * from ${DBPREFIX}_zuweisungen where teilnehmer='$code'");
 		$row = $res->fetch_assoc();
 		$wichtel = $row['wichtel'];
 		$teilnehmer = $row['teilnehmer'];
@@ -111,7 +111,7 @@
 			$cookie = 1;
 		}
 
-		$wichtel = selectsql("SELECT * FROM teilnehmer where code='$wichtel'")->fetch_assoc();
+		$wichtel = selectsql("SELECT * FROM ${DBPREFIX}_teilnehmer where code='$wichtel'")->fetch_assoc();
 
 		$dname = $wichtel['dname'];
 		$wishlist = nl2br($wichtel['wishlist']);
@@ -120,7 +120,7 @@
 		$favs = nl2br($wichtel['favs']);
 		$notlike = nl2br($wichtel['notlike']);
 		$email = $wichtel['email'];
-		$res = selectsql("SELECT trackingid from zuweisungen where teilnehmer='$code'");
+		$res = selectsql("SELECT trackingid from ${DBPREFIX}_zuweisungen where teilnehmer='$code'");
 		$row = $res->fetch_assoc();
 		$trackingid = $row['trackingid'];
 		if ($trackingid != null) {
@@ -140,7 +140,7 @@
 				exit();
 			}
 			$trackingcode = $mysqli->real_escape_string($trackingcode);
-			$sql = "UPDATE zuweisungen set trackingid='$trackingcode' where teilnehmer='$code'";
+			$sql = "UPDATE ${DBPREFIX}_zuweisungen set trackingid='$trackingcode' where teilnehmer='$code'";
 			// $mysqli->$query($sql);
 			if ($mysqli->query($sql) === TRUE) {
 				$trackingsent = 1;

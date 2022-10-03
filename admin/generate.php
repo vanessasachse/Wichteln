@@ -21,7 +21,7 @@ if ($mysqli->connect_errno) {
 for ($i=0; $i < $ANZAHL; $i++) { 
 	
 	$code = generateKey();
-	$sql = "INSERT INTO zuweisungen (teilnehmer)
+	$sql = "INSERT INTO ${DBPREFIX}_zuweisungen (teilnehmer)
   VALUES ('$code')";
 
   if ($mysqli->query($sql) === TRUE) {
