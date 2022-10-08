@@ -10,6 +10,7 @@ $ROLLDATE="XX.XX.XXXX";
 $ROLLTIME="XX:XX";
 $ALLOWREROLL=1;
 $CODEBLOCKS=4;
+$ALLOWMAIL=1;
 $SENDMAIL=0;
 $MAILFROM='wichteln@gurke.cc';
 $MAILNAME = 'Wichtelaktion';

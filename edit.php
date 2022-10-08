@@ -28,6 +28,7 @@ require 'admin/functions.php';
 if (isset($_GET['code'])) $code = $_GET['code'];
 else gtfo();
 
+if (checkbanned($_SERVER['REMOTE_ADDR'])) gtfo();
 
 $mysqli = new mysqli("$DBHOST", "$DBUSER", "$DBPASS", "$DBNAME");
 if ($mysqli->connect_errno) {
@@ -129,14 +130,15 @@ $email = $row['email'];
             <textarea class="end" name="like" id="like" cols="30" rows="3" placeholder="(Anime, Manga, Spiel, Essen, ...)">'.$favs.'</textarea>';
             ?>
           </div>
-
+          <?php 
+          if ($ALLOWMAIL) {
+            echo '
           <div class="item">
             <label for="email">E-Mail <span data-text="Falls du per E-Mail darüber informiert werden möchtest, wenn dein Paket auf dem Weg ist. Dein Wichtel sieht deine E-Mail Adresse nicht." class="tooltip"><img src="../images/help_FILL0_wght400_GRAD0_opsz48.svg" alt="help" width="18px" class="help"></span></label>
-            <?php echo '
-            <input id="email" type="email" name="email" value="'.$email.'" />';
-            ?>
-          </div>
-
+            <input id="email" type="email" name="email" value="'.$email.'" />
+          </div>';
+          }
+          ?>
         </div>
         <?php echo"
         <input type='text' class='hidden' name='code' required value=$code />";

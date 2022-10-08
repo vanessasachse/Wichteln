@@ -145,7 +145,7 @@
 			if ($mysqli->query($sql) === TRUE) {
 				$trackingsent = 1;
 				// Mails verschicken klappt nur im Echtbetrieb
-				if ($SENDMAIL) {
+				if ($SENDMAIL && $ALLOWMAIL) {
 					sendTrackingMail($email, $trackingcode, $dname);
 				} else {
 					echo "Mail versendet";
