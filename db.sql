@@ -19,10 +19,10 @@
 -- Table structure for table `teilnehmer`
 --
 
-DROP TABLE IF EXISTS `teilnehmer`;
+DROP TABLE IF EXISTS `acg_teilnehmer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `teilnehmer` (
+CREATE TABLE `acg_teilnehmer` (
   `id` mediumint(9) NOT NULL AUTO_INCREMENT,
   `code` varchar(255) DEFAULT NULL,
   `dname` varchar(50) DEFAULT NULL,
@@ -40,19 +40,19 @@ CREATE TABLE `teilnehmer` (
 -- Dumping data for table `teilnehmer`
 --
 
-LOCK TABLES `teilnehmer` WRITE;
-/*!40000 ALTER TABLE `teilnehmer` DISABLE KEYS */;
-/*!40000 ALTER TABLE `teilnehmer` ENABLE KEYS */;
+LOCK TABLES `acg_teilnehmer` WRITE;
+/*!40000 ALTER TABLE `acg_teilnehmer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `acg_teilnehmer` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `zuweisungen`
+-- Table structure for table `acg_zuweisungen`
 --
 
-DROP TABLE IF EXISTS `zuweisungen`;
+DROP TABLE IF EXISTS `acg_zuweisungen`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `zuweisungen` (
+CREATE TABLE `acg_zuweisungen` (
   `teilnehmer` varchar(255) NOT NULL,
   `wichtel` varchar(255) DEFAULT NULL,
   `trackingid` varchar(255) DEFAULT NULL,
@@ -62,12 +62,12 @@ CREATE TABLE `zuweisungen` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `zuweisungen`
+-- Dumping data for table `acg_zuweisungen`
 --
 
-LOCK TABLES `zuweisungen` WRITE;
-/*!40000 ALTER TABLE `zuweisungen` DISABLE KEYS */;
-/*!40000 ALTER TABLE `zuweisungen` ENABLE KEYS */;
+LOCK TABLES `acg_zuweisungen` WRITE;
+/*!40000 ALTER TABLE `acg_zuweisungen` DISABLE KEYS */;
+/*!40000 ALTER TABLE `acg_zuweisungen` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

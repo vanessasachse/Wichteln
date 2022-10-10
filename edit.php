@@ -36,7 +36,7 @@ if ($mysqli->connect_errno) {
 }
 
 if (isset($_POST['code'])){
-  
+
   $code = $mysqli->real_escape_string($_POST['code']);
   $dname = $mysqli->real_escape_string($_POST['dname']);
   $wishlist = $mysqli->real_escape_string($_POST['wishlist']);
@@ -45,7 +45,7 @@ if (isset($_POST['code'])){
   $favs = $mysqli->real_escape_string($_POST['like']);
   $notlike = $mysqli->real_escape_string($_POST['notLike']);
   $email = $mysqli->real_escape_string($_POST['email']);
-  $sql = "UPDATE ${DBPREFIX}_teilnehmer SET dname='$dname', wishlist='$wishlist', adresse='$adresse', interesse='$interesse',favs='$favs', notlike='$notlike', email='$email' 
+  $sql = "UPDATE ${DBPREFIX}_teilnehmer SET dname='$dname', wishlist='$wishlist', adresse='$adresse', interesse='$interesse',favs='$favs', notlike='$notlike', email='$email'
   WHERE code='$code'";
     if ($mysqli->query($sql) === TRUE) {
       $updateSuccess=1;
@@ -66,10 +66,10 @@ $row = $res->fetch_assoc();
 $teilnehmer = $row['code'];
 if (is_null($teilnehmer)) {
   logFail($_SERVER['REMOTE_ADDR'], $code);
-  showerr("FALSCHER TEILNEHMERCODE", "Gefettfingert? Versuch’s einfach nochmal.", "<img class='cat' src='./images/gifs/type-computer.gif' width='160%'>");
+  showerr("FALSCHER TEILNEHMERCODE", "Gefettfingert? Versuch’s einfach nochmal.", "<img class='cat' src='/images/gifs/type-computer.gif' width='160%'>");
 }
 else{
-  
+
 $dname = $row['dname'];
 $wishlist = ($row['wishlist']);
 $adresse = ($row['adresse']);
@@ -87,14 +87,14 @@ $email = $row['email'];
     <div class="form">
       <form action="#" method="post">
         <div class="banner">
-          <h1>BEARBEITUNG</h1>  
+          <h1>BEARBEITUNG</h1>
         </div>
-        <div class='back'><a href='../wichtel.php'><img src='../images/expand_circle_down_FILL0_wght300_GRAD0_opsz48.svg'>Zurück</a></div>
-        
+        <div class='back'><a href='../wichtel'><img src='/images/expand_circle_down_FILL0_wght300_GRAD0_opsz48.svg'>Zurück</a></div>
+
         <div class="colums">
 
           <div class="item">
-            <label  for="dname">Discord Name <span>*</span></label>
+            <label  for="dname">Foren-Nickname<span>*</span></label>
             <?php echo'
             <input  id="dname" type="text" name="dname" required value="'.$dname.'" />';
             ?>
@@ -107,7 +107,7 @@ $email = $row['email'];
           </div>
           <div class="item">
             <label for="adresse">Adresse <span>*</span></label>
-            <?php 
+            <?php
             echo '
             <textarea name="adresse" id="adresse" cols="30" rows="3" required placeholder=" (Privat oder Packstation)">'.$adresse .'</textarea>';
             ?>
@@ -130,7 +130,7 @@ $email = $row['email'];
             <textarea class="end" name="like" id="like" cols="30" rows="3" placeholder="(Anime, Manga, Spiel, Essen, ...)">'.$favs.'</textarea>';
             ?>
           </div>
-          <?php 
+          <?php
           if ($ALLOWMAIL) {
             echo '
           <div class="item">
@@ -149,7 +149,7 @@ $email = $row['email'];
         <?php
         if ($updateSuccess) {
           echo '<p class="editsuccess">🎉 Deine Daten wurden erfolgreich aktualisiert!</p>';
-        }        
+        }
         ?>
       </form>
     </div>

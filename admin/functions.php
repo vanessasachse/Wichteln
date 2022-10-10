@@ -8,7 +8,7 @@ function showerr($errmsg, $text, $gif)
   }
   echo '<div class="container error">';
   echo "<div class='wrapper'><div class='test'><div class='msg'><h1>$errmsg</h1>";
-  echo "<div class='back'><a href=javascript:history.back()><img class='backImg' src='./images/expand_circle_down_FILL0_wght300_GRAD0_opsz48.svg'>Zurück</a></div><div><p>$text</p></div><div class='gif'>$gif</div></div></div></div></div></body></html>";
+  echo "<div class='back'><a href=javascript:history.back()><img class='backImg' src='/images/expand_circle_down_FILL0_wght300_GRAD0_opsz48.svg'>Zurück</a></div><div><p>$text</p></div><div class='gif'>$gif</div></div></div></div></div></body></html>";
   exit();
 }
 

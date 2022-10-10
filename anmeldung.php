@@ -26,7 +26,7 @@ if (($REGCLOSED) || (file_exists('admin/.rolled'))) {
       <img src="./images/christmas-decoration.png" alt="girl decorating a christmas tree">
     </div>
     <div class="form">
-      <form action="submit.php" method="post">
+      <form action="submit" method="post">
         <div class="banner">
           <h1>ANMELDUNG FÜR DAS TOLLSTE WICHTELN</h1>
         </div>
@@ -36,7 +36,7 @@ if (($REGCLOSED) || (file_exists('admin/.rolled'))) {
             <input id="code" type="text" name="code" required />
           </div>
           <div class="item">
-            <label class="end" for="dname">Discord Name <span>*</span></label>
+            <label class="end" for="dname">Foren-Nickname<span>*</span></label>
             <input class="end" id="dname" type="text" name="dname" required />
           </div>
           <div class="item">

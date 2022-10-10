@@ -29,7 +29,7 @@
 
 	if ($_GET['delcookie']) {
 		setcookie("wichtelcode", "", time() - 3600);
-		Header("Location:wichtel.php");
+		Header("Location:wichtel");
 	}
 
 	if (!isset($_POST['code']) && (!isset($_COOKIE['wichtelcode']))) {
@@ -39,7 +39,7 @@
 		  <img src='./images/christmas-celebration.png' alt='santa flying over house'>
 		  </div>
 		<div class='form teilnehmer'>
-        <form action='wichtel.php' method='post'>
+        <form action='wichtel' method='post'>
           <div class='banner'>
             <h1>INFORMATIONEN ANZEIGEN ODER BEARBEITEN</h1>
           </div>
@@ -136,7 +136,7 @@
 			if (!validateTrackingCode($trackingcode)) {
 				echo "<h1>Fehler!</h1>
 				<p style='padding-top: 60px;'>Bitte nur Buchstaben und Zahlen eingeben!</p>
-				<a href=wichtel.php>Zurück</a></body></html>";
+				<a href=wichtel>Zurück</a></body></html>";
 				exit();
 			}
 			$trackingcode = $mysqli->real_escape_string($trackingcode);
@@ -166,7 +166,7 @@
           <div class='colums row mobile'>
             <div class='item info'>
 			<img class='icon' src='./images/account_circle_FILL0_wght300_GRAD0_opsz48.svg' alt='account icon'>
-			<h3>Discord-Name</h3>
+			<h3>Foren-Nickname</h3>
 			 <p>$dname</p>
             </div>
 			<div class='item info'>
@@ -226,7 +226,7 @@
 		}
 
 		if ($cookie) {
-			echo '<p><a class="smallerlink" href="wichtel.php?delcookie=1">Cookie löschen</a></p>';
+			echo '<p><a class="smallerlink" href="wichtel?delcookie=1">Cookie löschen</a></p>';
 		}
 		echo "</div>
 		</div>";

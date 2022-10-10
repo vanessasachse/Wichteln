@@ -1,3 +1,4 @@
 admin/.rolled
 admin/fail.log
 admin/.banip
+honeypot.php
