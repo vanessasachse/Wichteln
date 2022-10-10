@@ -96,38 +96,38 @@ $email = $row['email'];
           <div class="item">
             <label  for="dname">Discord Name <span>*</span></label>
             <?php echo'
-            <input  id="dname" type="text" name="dname" required value="'.$dname.'" />';
+            <input  id="dname" type="text" name="dname" required value="'.htmlspecialchars($dname,ENT_QUOTES).'" />';
             ?>
           </div>
           <div class="item">
             <label class="end" for="wishlist">Wishlist</label>
             <?php echo'
-            <input class="end" id="wishlist" type="text" name="wishlist" value="'.$wishlist.'" />';
+            <input class="end" id="wishlist" type="text" name="wishlist" value="'.htmlspecialchars($wishlist,ENT_QUOTES).'" />';
             ?>
           </div>
           <div class="item">
             <label for="adresse">Adresse <span>*</span></label>
             <?php 
             echo '
-            <textarea name="adresse" id="adresse" cols="30" rows="3" required placeholder=" (Privat oder Packstation)">'.$adresse .'</textarea>';
+            <textarea name="adresse" id="adresse" cols="30" rows="3" required placeholder=" (Privat oder Packstation)">'.htmlspecialchars($adresse,ENT_QUOTES).'</textarea>';
             ?>
           </div>
           <div class="item">
             <label class="end" for="interesse">Interessen <span>*</span></label>
             <?php echo'
-            <textarea class="end" name="interesse" id="interesse" cols="30" rows="3" required>'.$interesse.'</textarea>';
+            <textarea class="end" name="interesse" id="interesse" cols="30" rows="3" required>'.htmlspecialchars($interesse,ENT_QUOTES).'</textarea>';
             ?>
           </div>
           <div class="item">
             <label for="notLike">Abneigungen/Allergien <span>*</span></label>
             <?php echo '
-            <textarea name="notLike" id="notLike" cols="30" rows="3" required>'.$notlike.'</textarea>';
+            <textarea name="notLike" id="notLike" cols="30" rows="3" required>'.htmlspecialchars($notlike,ENT_QUOTES).'</textarea>';
             ?>
           </div>
           <div class="item">
             <label class="end" for="like">Lieblings... </label>
             <?php echo '
-            <textarea class="end" name="like" id="like" cols="30" rows="3" placeholder="(Anime, Manga, Spiel, Essen, ...)">'.$favs.'</textarea>';
+            <textarea class="end" name="like" id="like" cols="30" rows="3" placeholder="(Anime, Manga, Spiel, Essen, ...)">'.htmlspecialchars($favs,ENT_QUOTES).'</textarea>';
             ?>
           </div>
           <?php 
@@ -135,13 +135,13 @@ $email = $row['email'];
             echo '
           <div class="item">
             <label for="email">E-Mail <span data-text="Falls du per E-Mail darüber informiert werden möchtest, wenn dein Paket auf dem Weg ist. Dein Wichtel sieht deine E-Mail Adresse nicht." class="tooltip"><img src="../images/help_FILL0_wght400_GRAD0_opsz48.svg" alt="help" width="18px" class="help"></span></label>
-            <input id="email" type="email" name="email" value="'.$email.'" />
+            <input id="email" type="email" name="email" value="'.htmlspecialchars($email,ENT_QUOTES).'" />
           </div>';
           }
           ?>
         </div>
         <?php echo"
-        <input type='text' class='hidden' name='code' required value=$code />";
+        <input type='text' class='hidden' name='code' required value='".htmlspecialchars($code, ENT_QUOTES). "' />";
         ?>
         <div class="btn-block">
           <button type="submit">Absenden</button>

@@ -113,12 +113,12 @@
 
 		$wichtel = selectsql("SELECT * FROM ${DBPREFIX}_teilnehmer where code='$wichtel'")->fetch_assoc();
 
-		$dname = $wichtel['dname'];
-		$wishlist = nl2br($wichtel['wishlist']);
-		$adresse = nl2br($wichtel['adresse']);
-		$interesse = nl2br($wichtel['interesse']);
-		$favs = nl2br($wichtel['favs']);
-		$notlike = nl2br($wichtel['notlike']);
+		$dname = htmlspecialchars($wichtel['dname'], ENT_QUOTES);
+		$wishlist = nl2br(htmlspecialchars($wichtel['wishlist'], ENT_QUOTES));
+		$adresse = nl2br(htmlspecialchars($wichtel['adresse'],ENT_QUOTES));
+		$interesse = nl2br(htmlspecialchars($wichtel['interesse'],ENT_QUOTES));
+		$favs = nl2br(htmlspecialchars($wichtel['favs'],ENT_QUOTES));
+		$notlike = nl2br(htmlspecialchars($wichtel['notlike'],ENT_QUOTES));
 		$email = $wichtel['email'];
 		$res = selectsql("SELECT trackingid from ${DBPREFIX}_zuweisungen where teilnehmer='$code'");
 		$row = $res->fetch_assoc();
