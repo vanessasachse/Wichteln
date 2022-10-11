@@ -63,17 +63,17 @@ form {
     margin-left: 34px;
 }
 .item input:hover, .item select:hover, .item textarea:hover {
-    border: 1px solid #4D61FC;
+    border: 1px solid #49a3d1;
     }
 .item input:focus, .item select:focus, .item textarea:focus {
-        border: 1px solid #4D61FC;
+        border: 1px solid #49a3d1;
         }
 .item {
     position: relative;
     margin: 10px 0;
     }
 .item span {
-    color: #4D61FC;
+    color: #49a3d1;
     }
 .colums {
     display:flex;
@@ -96,7 +96,7 @@ button {
     padding: 10px;
     border: none;
     border-radius: 5px; 
-    background:  #4D61FC;
+    background:  #49a3d1;
     font-size: 16px;
     color: #f4f4f4;
     cursor: pointer;
@@ -104,7 +104,7 @@ button {
     
     }
 button:hover {
-    background:  #3644B1;
+    background:  #3678b1;
     color: #e4e4e4;
     }
 

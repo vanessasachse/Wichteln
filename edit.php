@@ -93,13 +93,13 @@ $email = $row['email'];
         <div class="colums">
 
           <div class="item">
-            <label  for="dname">Discord Name <span>*</span></label>
+            <label  for="dname">Foren-Nickname<span>*</span></label>
             <?php echo'
             <input  id="dname" type="text" name="dname" required value="'.htmlspecialchars($dname,ENT_QUOTES).'" />';
             ?>
           </div>
           <div class="item">
-            <label class="end" for="wishlist">Wishlist</label>
+            <label class="end" for="wishlist">Sonstiges</label>
             <?php echo'
             <input class="end" id="wishlist" type="text" name="wishlist" value="'.htmlspecialchars($wishlist,ENT_QUOTES).'" />';
             ?>

@@ -60,7 +60,7 @@
 		if (!file_exists('admin/.rolled')) { // Hier ist noch keine DB Verbindung aufgebaut, so schmutzig, was soll's 😤
 			echo "
 		<div class='edit'>
-		<p>> <a id='editButton'>Eigene Infos bearbeiten</a><br>(Teilnehmercode oben einfügen nicht vergessen!)</p> 
+		<p><a id='editButton'>Eigene Infos bearbeiten</a><br>(Teilnehmercode oben einfügen nicht vergessen!)</p> 
 	  </div>";
 		}
 		echo "

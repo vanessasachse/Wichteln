@@ -1,9 +1,9 @@
 <?php
-$DBHOST='localhost';
-$DBUSER='acgwichteln';
-$DBPASS='JKLdfasfas!423-ASDaffjf99!!fdjads';
+$DBHOST='gulasch.fritz.box';
+$DBUSER='wichteln';
+$DBPASS='blabla123';
 $DBNAME='wichteln';
-$DBPREFIX='acg';
+$DBPREFIX='disc';
 $SITEURL='acg-wichteln.aerishi.de';
 $REGCLOSED=0;
 $ROLLDATE="XX.XX.XXXX";
