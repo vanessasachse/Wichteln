@@ -61,7 +61,7 @@ if (isset($_POST['code'])){
 }
 
 
-// if (checkrolled()) gtfo();
+if (checkrolled()) gtfo();
 
 $sql = $mysqli->prepare("SELECT * from ${DBPREFIX}_teilnehmer where code=?");
 $sql->bind_param("s",$code);
