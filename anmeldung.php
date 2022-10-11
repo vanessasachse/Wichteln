@@ -23,7 +23,7 @@ if (($REGCLOSED) || (file_exists('admin/.rolled'))) {
 <body>
   <div class="container">
     <div class="image">
-      <img src="./images/christmas-decoration.png" alt="girl decorating a christmas tree">
+      <img src="./images/christmas-decoration1.png" alt="girl decorating a christmas tree">
     </div>
     <div class="form">
       <form action="submit" method="post">
@@ -56,7 +56,7 @@ if (($REGCLOSED) || (file_exists('admin/.rolled'))) {
             <textarea class="end" name="like" id="like" cols="30" rows="3" placeholder="(Anime, Manga, Spiel, Essen, ...)"></textarea>
           </div>
           <div class="item">
-            <label for="wishlist">Wishlist</label>
+            <label for="wishlist">Sonstiges</label>
             <input id="wishlist" type="text" name="wishlist" />
           </div>
           <?php
