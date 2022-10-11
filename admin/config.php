@@ -1,7 +1,7 @@
 <?php
 $DBHOST='localhost';
-$DBUSER='acgwichteln';
-$DBPASS='JKLdfasfas!423-ASDaffjf99!!fdjads';
+$DBUSER='wichteln';
+$DBPASS='blabla123';
 $DBNAME='wichteln';
 $DBPREFIX='acg';
 $SITEURL='acg-wichteln.aerishi.de';
@@ -11,7 +11,7 @@ $ROLLTIME="XX:XX";
 $ALLOWREROLL=1;
 $CODEBLOCKS=4;
 $ALLOWMAIL=1;
-$SENDMAIL=1;
+$SENDMAIL=0;
 $MAILFROM='wichteln@gurke.cc';
 $MAILNAME = 'Wichtelaktion';
 $EXCLUDES = [

@@ -36,28 +36,37 @@ if ($mysqli->connect_errno) {
 }
 
 if (isset($_POST['code'])){
-  $code = $mysqli->real_escape_string($_POST['code']);
-  $dname = $mysqli->real_escape_string($_POST['dname']);
-  $wishlist = $mysqli->real_escape_string($_POST['wishlist']);
-  $adresse = $mysqli->real_escape_string($_POST['adresse']);
-  $interesse = $mysqli->real_escape_string($_POST['interesse']);
-  $favs = $mysqli->real_escape_string($_POST['like']);
-  $notlike = $mysqli->real_escape_string($_POST['notLike']);
-  $email = $mysqli->real_escape_string($_POST['email']);
-  $sql = "UPDATE ${DBPREFIX}_teilnehmer SET dname='$dname', wishlist='$wishlist', adresse='$adresse', interesse='$interesse',favs='$favs', notlike='$notlike', email='$email' 
-  WHERE code='$code'";
-    if ($mysqli->query($sql) === TRUE) {
+  $code = $_POST['code'];
+  $dname = $_POST['dname'];
+  $wishlist = $_POST['wishlist'];
+  $adresse = $_POST['adresse'];
+  $interesse = $_POST['interesse'];
+  $favs = $_POST['like'];
+  $notlike = $_POST['notLike'];
+  $email = $_POST['email'];
+  
+  // $sql = "UPDATE ${DBPREFIX}_teilnehmer SET dname='$dname', wishlist='$wishlist', adresse='$adresse', interesse='$interesse',favs='$favs', notlike='$notlike', email='$email' 
+  // WHERE code='$code'";
+
+  $sql = $mysqli->prepare("UPDATE ${DBPREFIX}_teilnehmer SET dname=?, wishlist=?, adresse=?, interesse=?,favs=?, notlike=?, email=?
+  WHERE code=?");
+  $sql->bind_param("ssssssss",$dname, $wishlist, $adresse, $interesse, $favs, $notlike, $email, $code);
+  
+    if ($sql->execute() === TRUE) {
       $updateSuccess=1;
     } else {
-      echo "Error: " . $sql . "<br>" . $mysqli->error;
+      echo "Error: " . $sql . "<br>" . $sql->error;
     }
 
 }
 
 
-if (checkrolled()) gtfo();
-$code = $mysqli->real_escape_string($code);
-$res = selectsql("SELECT * from ${DBPREFIX}_teilnehmer where code='$code'");
+// if (checkrolled()) gtfo();
+
+$sql = $mysqli->prepare("SELECT * from ${DBPREFIX}_teilnehmer where code=?");
+$sql->bind_param("s",$code);
+$sql->execute();
+$res = $sql->get_result();
 $row = $res->fetch_assoc();
 
 
@@ -140,7 +149,7 @@ $email = $row['email'];
           ?>
         </div>
         <?php echo"
-        <input type='text' class='hidden' name='code' required value='".htmlspecialchars($code, ENT_QUOTES). "' />";
+        <input type='text' class='hidden' name='code' required value='".htmlspecialchars($code, ENT_QUOTES)."' />";
         ?>
         <div class="btn-block">
           <button type="submit">Absenden</button>

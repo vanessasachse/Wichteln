@@ -9,11 +9,11 @@
 	<link rel="stylesheet" href="./src/universal-styles.css">
 	<link rel="stylesheet" href="./src/mobile_wichtel.css">
 	<link rel="icon" type="image/png" href="/images/favicon/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16">
-    <link rel="apple-touch-icon" type="image/png" href="/images/favicon/apple-touch-icon.png" sizes="180x180">
-	<script src="./src/editButton.js" defer></script> 
+	<link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16">
+	<link rel="apple-touch-icon" type="image/png" href="/images/favicon/apple-touch-icon.png" sizes="180x180">
+	<script src="./src/editButton.js" defer></script>
 	<title>Informationen zu deinem Wichtel</title>
-	
+
 </head>
 
 <body>
@@ -24,8 +24,8 @@
 	if (checkbanned($_SERVER['REMOTE_ADDR'])) {
 		showerr("ZU OFT VERSUCHT", "Versuch's später nochmal</body></html>", null);
 		exit();
-	  }
-	
+	}
+
 
 	if ($_GET['delcookie']) {
 		setcookie("wichtelcode", "", time() - 3600);
@@ -80,9 +80,11 @@
 		if ($mysqli->connect_errno) {
 			die('mysqli connection error: ' . $mysqli->connect_error);
 		}
-		$code = $mysqli->real_escape_string($code);
-		$res = selectsql("SELECT * from ${DBPREFIX}_zuweisungen where teilnehmer='$code'");
-		$row = $res->fetch_assoc();
+
+		$sql = $mysqli->prepare("SELECT * from ${DBPREFIX}_zuweisungen where teilnehmer=?");
+		$sql->bind_param("s", $code);
+		$sql->execute();
+		$row = ($sql->get_result())->fetch_assoc();
 		$wichtel = $row['wichtel'];
 		$teilnehmer = $row['teilnehmer'];
 
@@ -94,9 +96,8 @@
 
 		if (is_null($wichtel)) {
 			if (checkrolled()) {
-				
+
 				showerr("ZU SPÄT 😭", "Anscheinend hast du das Anmeldeformular nicht rechtzeitig ausgefüllt.<br>Die Wichtel wurden bereits zugeteilt!", "<img class='kermit' src='./images/gifs/sad-pablo-lonely.gif' width='110%'>");
-				
 			} else {
 				showerr("NICHT SO SCHNELL", "Die Wichtel wurden noch nicht zugeteilt!<br>Am <strong>$ROLLDATE</strong> um <strong>$ROLLTIME Uhr</strong> wird dir dein Wichtel zugeteilt! ❄", "<img class='spongebob' src='./images/gifs/spongebob-cant-wait.gif' width='120%'>");
 			}
@@ -111,17 +112,24 @@
 			$cookie = 1;
 		}
 
-		$wichtel = selectsql("SELECT * FROM ${DBPREFIX}_teilnehmer where code='$wichtel'")->fetch_assoc();
+
+		$sql = $mysqli->prepare("SELECT * FROM ${DBPREFIX}_teilnehmer where code=?");
+		$sql->bind_param("s",$wichtel);
+		$sql->execute();
+		$wichtel=($sql->get_result())->fetch_assoc();
 
 		$dname = htmlspecialchars($wichtel['dname'], ENT_QUOTES);
 		$wishlist = nl2br(htmlspecialchars($wichtel['wishlist'], ENT_QUOTES));
-		$adresse = nl2br(htmlspecialchars($wichtel['adresse'],ENT_QUOTES));
-		$interesse = nl2br(htmlspecialchars($wichtel['interesse'],ENT_QUOTES));
-		$favs = nl2br(htmlspecialchars($wichtel['favs'],ENT_QUOTES));
-		$notlike = nl2br(htmlspecialchars($wichtel['notlike'],ENT_QUOTES));
+		$adresse = nl2br(htmlspecialchars($wichtel['adresse'], ENT_QUOTES));
+		$interesse = nl2br(htmlspecialchars($wichtel['interesse'], ENT_QUOTES));
+		$favs = nl2br(htmlspecialchars($wichtel['favs'], ENT_QUOTES));
+		$notlike = nl2br(htmlspecialchars($wichtel['notlike'], ENT_QUOTES));
 		$email = $wichtel['email'];
-		$res = selectsql("SELECT trackingid from ${DBPREFIX}_zuweisungen where teilnehmer='$code'");
-		$row = $res->fetch_assoc();
+
+		$sql=$mysqli->prepare("SELECT trackingid from ${DBPREFIX}_zuweisungen where teilnehmer=?");
+		$sql->bind_param("s",$code);
+		$sql->execute();
+		$row = ($sql->get_result())->fetch_assoc();
 		$trackingid = $row['trackingid'];
 		if ($trackingid != null) {
 
@@ -131,7 +139,7 @@
 
 		//*****
 
-		if (isset($_POST['trackcode']) && (!$trackingsent)) {
+		if (isset($_POST['trackcode']) && (!$trackingsent) && isset($email)) {
 			$trackingcode = $_POST['trackcode'];
 			if (!validateTrackingCode($trackingcode)) {
 				echo "<h1>Fehler!</h1>
@@ -139,10 +147,9 @@
 				<a href=wichtel>Zurück</a></body></html>";
 				exit();
 			}
-			$trackingcode = $mysqli->real_escape_string($trackingcode);
-			$sql = "UPDATE ${DBPREFIX}_zuweisungen set trackingid='$trackingcode' where teilnehmer='$code'";
-			// $mysqli->$query($sql);
-			if ($mysqli->query($sql) === TRUE) {
+			$sql = $mysqli->prepare("UPDATE ${DBPREFIX}_zuweisungen set trackingid=? where teilnehmer=?");
+			$sql->bind_param("ss",$trackingcode,$code);
+			if ($sql->execute() === TRUE) {
 				$trackingsent = 1;
 				// Mails verschicken klappt nur im Echtbetrieb
 				if ($SENDMAIL && $ALLOWMAIL) {
@@ -151,7 +158,7 @@
 					echo "Mail versendet";
 				}
 			} else {
-				echo "Error: " . $sql . "<br>" . $mysqli->error;
+				echo "Error: " . $sql . "<br>" . $sql->error;
 			}
 		}
 
@@ -213,7 +220,7 @@
 		   <label class='smallerlabel' for='trackcode'>Trackingcode</label>
 			 <input class='trackingcode' id='trackcode' type='text' name='trackcode' required pattern=\"\w{3,}\" />";
 				if (!$cookie) {
-					echo " <input class='hidden'  name='code' value=\"$code\" />";
+					echo " <input class='hidden'  name='code' value='".htmlspecialchars($code, ENT_QUOTES)."' />";
 				}
 				echo "<div class='item btn-block btn-tracking'>
 		   		<button id='trackingbtn' type='submit'>Absenden</button>
