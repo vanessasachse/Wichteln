@@ -44,9 +44,11 @@
   }
 
 
-  $res = selectsql("SELECT teilnehmer from ${DBPREFIX}_zuweisungen where teilnehmer='$code'");
+  $sql=$mysqli->prepare("SELECT teilnehmer from ${DBPREFIX}_zuweisungen where teilnehmer=?");
+  $sql->bind_param("s",$code);
+  $sql->execute();
+  $row=($sql->get_result())->fetch_assoc();
   $rolled = checkrolled();
-  $row = $res->fetch_assoc();
   if (is_null($row)) {
     logFail($_SERVER['REMOTE_ADDR'], $code);
     showerr("CODE UNGÜLTIG!", "Gefettfingert? Versuch’s einfach nochmal.", "<img class='cat' src='./images/gifs/type-computer.gif' width='160%'>");
@@ -67,22 +69,10 @@
   }
 
 
-  $code = $mysqli->real_escape_string($code);
-  $dname = $mysqli->real_escape_string($dname);
-  $wishlist = $mysqli->real_escape_string($wishlist);
-  $adresse = $mysqli->real_escape_string($adresse);
-  $interesse = $mysqli->real_escape_string($interesse);
-  $favs = $mysqli->real_escape_string($favs);
-  $notlike = $mysqli->real_escape_string($notlike);
-  $email = $mysqli->real_escape_string($email);
+$sql = $mysqli->prepare("INSERT INTO ${DBPREFIX}_teilnehmer (code, dname, wishlist, adresse, interesse, favs, notlike, email) VALUES (?,?,?,?,?,?,?,?)");
+$sql->bind_param("ssssssss", $code, $dname, $wishlist, $adresse, $interesse, $favs, $notlike, $email);
 
-
-  $sql = "INSERT INTO ${DBPREFIX}_teilnehmer (code, dname, wishlist, adresse, interesse, favs, notlike, email)
-VALUES ('$code', '$dname', '$wishlist', '$adresse', '$interesse','$favs', '$notlike', '$email')";
-
-
-
-  if ($mysqli->query($sql) === TRUE) {
+  if ($sql->execute() === TRUE) {
     echo '<div class="container">
   <div class="image">
     <img class="sideimg" src="./images/christmas-decoration.png" alt="girl decorating a christmas tree">
@@ -93,7 +83,7 @@ VALUES ('$code', '$dname', '$wishlist', '$adresse', '$interesse','$favs', '$notl
   Bis zu diesem Zeitpunkt kannst du deine Daten jederzeit unter deinem persönlichen Link bearbeiten:
   <input type='text' onClick='this.select()' readonly value='https://$SITEURL/edit/$code'></p></div><div class='gif'><img class='party' src='./images/gifs/fist.gif' width='160%'></div></div></div></div></div>";
   } else {
-    echo "Error: " . $sql . "<br>" . $mysqli->error;
+    echo "Error: " . $sql . "<br>" . $sql->error;
   }
   $mysqli->close();
   ?>
