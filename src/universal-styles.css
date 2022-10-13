@@ -90,7 +90,26 @@ p > a:hover {
  animation: editsuccess 0.15s ease-in-out;
 
 }
+.titlepic {
+    max-width:100%;
+}
 
+@media (max-width: 388px){
+    body > div.wrapper > div > div:nth-child(3) > a {
+        padding-bottom: 17px;
+    }
+    a {
+        font-size: 1.5rem;
+    }
+}
+@media (max-width: 560px) {
+    .container {
+        gap: 45px !important;
+    }
+}
+body > div.wrapper > div > div:nth-child(3) > a {
+    text-align:center;
+}
  @keyframes editsuccess
 {
 	0% {
