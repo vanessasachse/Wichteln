@@ -73,6 +73,9 @@ p > a {
     top: 0;
     display: inline-block;
 }
+.item > a {
+    border-bottom: 1px solid;
+} 
 
 p > a:hover {
     color:#3644B1;
@@ -87,7 +90,26 @@ p > a:hover {
  animation: editsuccess 0.15s ease-in-out;
 
 }
+.titlepic {
+    max-width:100%;
+}
 
+@media (max-width: 388px){
+    body > div.wrapper > div > div:nth-child(3) > a {
+        padding-bottom: 17px;
+    }
+    a {
+        font-size: 1.5rem;
+    }
+}
+@media (max-width: 560px) {
+    .titlegap {
+        gap: 45px !important;
+    }
+}
+body > div.wrapper > div > div:nth-child(3) > a {
+    text-align:center;
+}
  @keyframes editsuccess
 {
 	0% {

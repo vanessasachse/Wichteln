@@ -171,23 +171,8 @@
             <h1>INFORMATIONEN ZU DEINEM WICHTEL</h1>
           </div>
           <div class='colums row mobile'>
+		  
 		  <div class='item info'>
-		  <img class='icon' src='./images/favorite_FILL0_wght300_GRAD0_opsz48.svg' alt='heart icon'>
-		  <h3>Lieblingsdinge</h3>
-		   <p>$favs</p>
-		  </div>
-		  <div class='item info'>
-		  <img class='icon' src='./images/sentiment_satisfied_FILL0_wght300_GRAD0_opsz48.svg' alt='smiling face icon'>
-		  <h3>Interessen</h3>
-		   <p>$interesse</p>
-		  </div>
-		  <div class='item info'>
-		  <img class='icon' src='./images/cancel_FILL0_wght300_GRAD0_opsz48.svg' alt='cancel icon'>
-		  <h3>Abneigungen/Allergien</h3>
-		   <p>$notlike</p>
-		  </div>";
-		echo "
-			<div class='item info'>
 			<img class='icon' src='./images/account_circle_FILL0_wght300_GRAD0_opsz48.svg' alt='account icon'>
 			<h3>Foren-Nickname</h3>
 			 <p>$dname</p>
@@ -196,7 +181,26 @@
 			<img class='icon' src='./images/home_pin_FILL0_wght300_GRAD0_opsz48.svg' alt='adress icon'>
 			<h3>Adresse</h3>
 			 <p>$adresse</p>
-            </div>
+            
+			</div>
+			<div class='item info'>
+			<img class='icon' src='./images/favorite_FILL0_wght300_GRAD0_opsz48.svg' alt='heart icon'>
+			<h3>Lieblingsdinge</h3>
+			 <p>$favs</p>
+			</div>";
+		echo "
+			
+			<div class='item info'>
+		  <img class='icon' src='./images/sentiment_satisfied_FILL0_wght300_GRAD0_opsz48.svg' alt='smiling face icon'>
+		  <h3>Interessen</h3>
+		   <p>$interesse</p>
+		  </div>
+		  
+		  <div class='item info'>
+		  <img class='icon' src='./images/cancel_FILL0_wght300_GRAD0_opsz48.svg' alt='cancel icon'>
+		  <h3>Abneigungen/Allergien</h3>
+		   <p>$notlike</p>
+		  </div>
 			<div class='item info'>
 			<img class='icon' src='./images/event_note_FILL0_wght300_GRAD0_opsz48.svg' alt='list icon'>
 			<h3>Sonstiges</h3>";
