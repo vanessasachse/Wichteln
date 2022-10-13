@@ -73,6 +73,9 @@ p > a {
     top: 0;
     display: inline-block;
 }
+.item > a {
+    border-bottom: 1px solid;
+} 
 
 p > a:hover {
     color:#3644B1;
