@@ -1,7 +1,7 @@
 const text = document.querySelector("#box");
 
 function delCode() {
-    let code = prompt();
+    let code = prompt("Bidde Code eingeben");
     async function calldel(cc) {
         console.log("delete" +cc);
         const response = await fetch("deletecode.php?code="+cc);
