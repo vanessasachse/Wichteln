@@ -103,7 +103,7 @@ p > a:hover {
     }
 }
 @media (max-width: 560px) {
-    .container {
+    .titlegap {
         gap: 45px !important;
     }
 }
