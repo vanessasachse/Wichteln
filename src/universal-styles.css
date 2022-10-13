@@ -31,7 +31,7 @@ h1 {
         margin: 0;
         font-family: Roboto-Medium, Arial, sans-serif;
         font-size: 4.1rem;
-        color: #49a3d1;
+        color: #4D61FC;
         line-height: 1.3;
      }
 
@@ -68,14 +68,14 @@ a {
     cursor: pointer;
 }
 p > a {
-    color: #49a3d1;
+    color: #4D61FC;
     font-size: 1.8rem;
     top: 0;
     display: inline-block;
 }
 
 p > a:hover {
-    color:#3678b1;
+    color:#3644B1;
 }
 
 .hidden {
@@ -83,7 +83,7 @@ p > a:hover {
 }
 
 .editsuccess{
-    color: #49a3d1;
+    color: #4D61FC;
  animation: editsuccess 0.15s ease-in-out;
 
 }

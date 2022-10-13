@@ -23,7 +23,7 @@ if (($REGCLOSED) || (file_exists('admin/.rolled'))) {
 <body>
   <div class="container">
     <div class="image">
-      <img src="./images/christmas-decoration1.png" alt="girl decorating a christmas tree">
+      <img src="./images/christmas-decoration.png" alt="girl decorating a christmas tree">
     </div>
     <div class="form">
       <form action="submit" method="post">

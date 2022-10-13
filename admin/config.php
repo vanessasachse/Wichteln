@@ -1,9 +1,13 @@
 <?php
-<<<<<<< HEAD
+
 $DBHOST='gulasch.fritz.box';
+<<<<<<< HEAD
 =======
 $DBHOST='gulasch.fritz.box';
 >>>>>>> e65ff69f0f87b08fe61bcef438e67329846704bc
+=======
+
+>>>>>>> 041213521a0b81e3474938aab30da7f735319e1c
 $DBUSER='wichteln';
 $DBPASS='blabla123';
 $DBNAME='wichteln';
