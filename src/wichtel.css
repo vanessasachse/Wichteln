@@ -217,6 +217,9 @@ div > p {
 margin: 0;
 font-size: 1.6rem;
 }
+.info > p {
+    font-size: 1.5rem;
+}
 .wichteltracking {
     margin-bottom: 30px;
     width: 80%;
