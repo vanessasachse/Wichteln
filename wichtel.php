@@ -46,7 +46,7 @@
           <div class='colums row front'>
             <div class='item'>
               <label for='code'>Dein Teilnehmercode <span>*</span></label>
-              <input class='codeInput' id='code' type='text' name='code' required/>
+              <input class='codeInput' id='code' type='text' name='code' pattern='^[A-z0-9\-]+$' required/>
             </div>
 			<div class='item btn-block'>
             <button type='submit'>Zeig mir meinen Wichtel!</button>

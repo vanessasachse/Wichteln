@@ -33,7 +33,7 @@ if (($REGCLOSED) || (file_exists('admin/.rolled'))) {
         <div class="colums">
           <div class="item">
             <label for="code">Code <span>*</span></label>
-            <input id="code" type="text" name="code" required />
+            <input id="code" type="text" name="code" pattern="^[A-z0-9\-]+$" required />
           </div>
           <div class="item">
             <label class="end" for="dname">Foren-Nickname<span>*</span></label>

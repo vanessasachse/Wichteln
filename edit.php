@@ -19,7 +19,7 @@
 <?php
 $updateSuccess=0;
 function gtfo(){
-  Header("Location:javascript:history.back()");
+  Header("Location:/wichtel");
   exit();
 }
 require 'admin/config.php';
