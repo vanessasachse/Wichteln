@@ -102,7 +102,7 @@ $email = $row['email'];
         <div class="colums">
 
           <div class="item">
-            <label  for="dname">Foren-Nickname<span>*</span></label>
+            <label  for="dname">Foren-Nickname <span>*</span></label>
             <?php echo'
             <input  id="dname" type="text" name="dname" required readonly value="'.htmlspecialchars($dname,ENT_QUOTES).'" />';
             ?>

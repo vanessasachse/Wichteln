@@ -36,11 +36,11 @@ if (($REGCLOSED) || (file_exists('admin/.rolled'))) {
             <input id="code" type="text" name="code" pattern="^[A-z0-9\-]+$" required />
           </div>
           <div class="item">
-            <label class="end" for="dname">Foren-Nickname<span>*</span></label>
+            <label class="end" for="dname">Foren-Nickname <span>*</span></label>
             <input class="end" id="dname" type="text" name="dname" required />
           </div>
           <div class="item">
-            <label for="adresse">Anschrift<span>*</span></label>
+            <label for="adresse">Anschrift <span>*</span></label>
             <textarea name="adresse" id="adresse" cols="30" rows="3" required placeholder=" (Privat oder Packstation)"></textarea>
           </div>
           <div class="item">
