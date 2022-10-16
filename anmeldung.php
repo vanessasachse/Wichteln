@@ -41,7 +41,7 @@ if (($REGCLOSED) || (file_exists('admin/.rolled'))) {
           </div>
           <div class="item">
             <label for="adresse">Anschrift <span>*</span></label>
-            <textarea name="adresse" id="adresse" cols="30" rows="3" required placeholder=" (Privat oder Packstation)"></textarea>
+            <textarea name="adresse" id="adresse" cols="30" rows="3" required placeholder=" Name + Adresse (oder Packstation)"></textarea>
           </div>
           <div class="item">
             <label class="end" for="interesse">Interessen <span>*</span></label>

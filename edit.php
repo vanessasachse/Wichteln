@@ -114,7 +114,7 @@ $email = $row['email'];
             <label for="adresse">Anschrift <span>*</span></label>
             <?php 
             echo '
-            <textarea name="adresse" id="adresse" cols="30" rows="3" required placeholder=" (Privat oder Packstation)">'.htmlspecialchars($adresse,ENT_QUOTES).'</textarea>';
+            <textarea name="adresse" id="adresse" cols="30" rows="3" required placeholder=" Name + Adresse (oder Packstation)">'.htmlspecialchars($adresse,ENT_QUOTES).'</textarea>';
             ?>
           </div>
           <div class="item">
