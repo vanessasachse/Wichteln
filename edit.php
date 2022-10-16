@@ -111,7 +111,7 @@ $email = $row['email'];
             <label class="end" for="wishlist"></label>
           </div>
           <div class="item">
-            <label for="adresse">Adresse <span>*</span></label>
+            <label for="adresse">Anschrift<span>*</span></label>
             <?php 
             echo '
             <textarea name="adresse" id="adresse" cols="30" rows="3" required placeholder=" (Privat oder Packstation)">'.htmlspecialchars($adresse,ENT_QUOTES).'</textarea>';

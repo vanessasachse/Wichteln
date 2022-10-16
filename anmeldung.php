@@ -40,7 +40,7 @@ if (($REGCLOSED) || (file_exists('admin/.rolled'))) {
             <input class="end" id="dname" type="text" name="dname" required />
           </div>
           <div class="item">
-            <label for="adresse">Adresse <span>*</span></label>
+            <label for="adresse">Anschrift<span>*</span></label>
             <textarea name="adresse" id="adresse" cols="30" rows="3" required placeholder=" (Privat oder Packstation)"></textarea>
           </div>
           <div class="item">
