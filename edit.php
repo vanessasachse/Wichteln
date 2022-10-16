@@ -108,10 +108,7 @@ $email = $row['email'];
             ?>
           </div>
           <div class="item">
-            <label class="end" for="wishlist">Sonstiges</label>
-            <?php echo'
-            <input class="end" id="wishlist" type="text" name="wishlist" value="'.htmlspecialchars($wishlist,ENT_QUOTES).'" />';
-            ?>
+            <label class="end" for="wishlist"></label>
           </div>
           <div class="item">
             <label for="adresse">Adresse <span>*</span></label>
@@ -147,6 +144,12 @@ $email = $row['email'];
           </div>';
           }
           ?>
+           <div class="item">
+            <label class="end" for="wishlist">Sonstiges</label>
+            <?php echo'
+            <input class="end" id="wishlist" type="text" name="wishlist" value="'.htmlspecialchars($wishlist,ENT_QUOTES).'" />';
+            ?>
+          </div>
         </div>
         <?php echo"
         <input type='text' class='hidden' name='code' required value='".htmlspecialchars($code, ENT_QUOTES)."' />";
