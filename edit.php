@@ -37,7 +37,7 @@ if ($mysqli->connect_errno) {
 
 if (isset($_POST['code'])){
   $code = $_POST['code'];
-  $dname = $_POST['dname'];
+ // $dname = $_POST['dname'];
   $wishlist = $_POST['wishlist'];
   $adresse = $_POST['adresse'];
   $interesse = $_POST['interesse'];
@@ -48,9 +48,9 @@ if (isset($_POST['code'])){
   // $sql = "UPDATE ${DBPREFIX}_teilnehmer SET dname='$dname', wishlist='$wishlist', adresse='$adresse', interesse='$interesse',favs='$favs', notlike='$notlike', email='$email' 
   // WHERE code='$code'";
 
-  $sql = $mysqli->prepare("UPDATE ${DBPREFIX}_teilnehmer SET dname=?, wishlist=?, adresse=?, interesse=?,favs=?, notlike=?, email=?
+  $sql = $mysqli->prepare("UPDATE ${DBPREFIX}_teilnehmer SET wishlist=?, adresse=?, interesse=?,favs=?, notlike=?, email=?
   WHERE code=?");
-  $sql->bind_param("ssssssss",$dname, $wishlist, $adresse, $interesse, $favs, $notlike, $email, $code);
+  $sql->bind_param("sssssss", $wishlist, $adresse, $interesse, $favs, $notlike, $email, $code);
   
     if ($sql->execute() === TRUE) {
       $updateSuccess=1;
@@ -104,7 +104,7 @@ $email = $row['email'];
           <div class="item">
             <label  for="dname">Foren-Nickname<span>*</span></label>
             <?php echo'
-            <input  id="dname" type="text" name="dname" required value="'.htmlspecialchars($dname,ENT_QUOTES).'" />';
+            <input  id="dname" type="text" name="dname" required readonly value="'.htmlspecialchars($dname,ENT_QUOTES).'" />';
             ?>
           </div>
           <div class="item">
