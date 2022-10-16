@@ -179,7 +179,7 @@
             </div>
 			<div class='item info'>
 			<img class='icon' src='./images/home_pin_FILL0_wght300_GRAD0_opsz48.svg' alt='adress icon'>
-			<h3>Adresse</h3>
+			<h3>Anschrift</h3>
 			 <p>$adresse</p>
             
 			</div>
