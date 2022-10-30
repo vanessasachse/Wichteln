@@ -1,5 +1,7 @@
 <?php
 require 'config.php';
+require 'vendor/autoload.php';
+use Mailgun\Mailgun;
 function showerr($errmsg, $text, $gif)
 {
   global $mysqli;
@@ -81,30 +83,28 @@ function validateTrackingCode($code)
   return preg_match("$pattern", $code);
 }
 
+
+
 function sendTrackingMail($to, $tracking, $discordname)
 {
+  $mg = Mailgun::create('XXXXXX', 'https://api.eu.mailgun.net');
+
   global $MAILFROM;
   global $MAILNAME;
-  $headers[] = 'MIME-Version: 1.0';
-  $headers[] = 'Content-type: text/html; charset=utf-8';
-  // $headers[] = "To: <$to>";
-  $headers[] = "From: $MAILNAME <$MAILFROM>";
   $subject = 'Dein Wichtelpaket ist auf dem Weg!';
-  $message = "<html>
-  <head>
-    <title>Dein Wichtelpaket ist auf dem Weg!</title>
-  </head>
-  <body>
+  $message = "
   Ho ho ho $discordname,<br>
   Ein Grund zum Freuen: Dein Wichtelpaket ist auf dem Weg, hurra!<br><br>
   Wir sagen dir natürlich nicht von wem, aber falls dich die Neugierde etwas zu sehr packt, darfst du mit der Trackingnummer $tracking oder unter<br>
   <a href=https://nolp.dhl.de/nextt-online-public/set_identcodes.do?lang=de&idc=$tracking>DHL Tracking Link</a> spicken!<br><br>
-  Möge das Paket voller Freude sein!<br>
-  </body>
-  </html>";
+  Möge das Paket voller Freude sein!<br>";
 
-
-  mail($to, $subject, $message, implode("\r\n", $headers), "-f $MAILFROM");
+  $mg->messages()->send('gurke.cc', [
+  'from'    => "$MAILNAME <$MAILFROM>",
+  'to'      => "$to",
+  'subject' => "$subject",
+  'html'    => "$message"
+]);
 }
 
 function logFail($ip, $code)

@@ -1,4 +1,5 @@
 admin/.rolled
 admin/fail.log
 admin/.banip
+admin/vendor
 honeypot.php
