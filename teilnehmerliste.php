@@ -19,7 +19,7 @@
 
 </head>
 <body>
-    <ul>
+    <>
 <?php
 require 'admin/config.php';
 require 'admin/functions.php';
@@ -29,13 +29,28 @@ if ($mysqli->connect_errno) {
   die('mysqli connection error: ' . $mysqli->connect_error);
 }
 
-
-$res = selectsql("SELECT dname from ${DBPREFIX}_teilnehmer");
+$t=0;
+$codes = array();
+$res = selectsql("SELECT dname, code from ${DBPREFIX}_teilnehmer");
 while ($row = $res->fetch_assoc()) {
 $dname = $row['dname'];
+$c = $row['code'];
+array_push($codes, $c);
+$i++;
 echo "<li>$dname</li>\n";
 }
+echo "</ul>\n<p>Teilnehmer: $i<br>";
+
+$i=0;
+$res = selectsql("SELECT teilnehmer from ${DBPREFIX}_zuweisungen");
+while ($row = $res->fetch_assoc()){
+    $c=$row['teilnehmer'];
+    if (!(in_array($c, $codes))) {
+        $i++;
+    }
+}
+echo "Noch nicht angemeldet: $i</p>";
+
 ?>
-</ul>
 </body>
 </html>
