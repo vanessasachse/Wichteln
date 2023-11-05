@@ -87,19 +87,19 @@ function validateTrackingCode($code)
 
 function sendTrackingMail($to, $tracking, $discordname)
 {
-  $mg = Mailgun::create('XXXXXX', 'https://api.eu.mailgun.net');
+  $mg = Mailgun::create('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 'https://api.eu.mailgun.net');
 
   global $MAILFROM;
   global $MAILNAME;
   $subject = 'Dein Wichtelpaket ist auf dem Weg!';
   $message = "
   Ho ho ho $discordname,<br>
-  Ein Grund zum Freuen: Dein Wichtelpaket ist auf dem Weg, hurra!<br><br>
+  Ein Grund zum Freuen: Dein Wichtelpaket ist auf dem Weg, hurra!<br>
   Wir sagen dir natürlich nicht von wem, aber falls dich die Neugierde etwas zu sehr packt, darfst du mit der Trackingnummer $tracking oder unter<br>
   <a href=https://nolp.dhl.de/nextt-online-public/set_identcodes.do?lang=de&idc=$tracking>DHL Tracking Link</a> spicken!<br><br>
   Möge das Paket voller Freude sein!<br>";
 
-  $mg->messages()->send('gurke.cc', [
+  $mg->messages()->send('wichteln.lol', [
   'from'    => "$MAILNAME <$MAILFROM>",
   'to'      => "$to",
   'subject' => "$subject",
