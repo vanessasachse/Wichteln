@@ -74,7 +74,7 @@ $row = $res->fetch_assoc();
 $teilnehmer = $row['code'];
 if (is_null($teilnehmer)) {
   logFail($_SERVER['REMOTE_ADDR'], $code);
-  showerr("FALSCHER TEILNEHMERCODE", "Gefettfingert? Versuch’s einfach nochmal.", "<img class='cat' src='./images/gifs/type-computer.gif' width='160%'>");
+  showerr("FALSCHER TEILNEHMERCODE", "Gefettfingert? Versuch’s einfach nochmal.", "<img class='cat' src='/images/gifs/type-computer.gif' width='160%'>");
 }
 else{
   
