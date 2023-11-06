@@ -121,6 +121,19 @@ TODO #5*/
     background: #3644b1;
     color: #e4e4e4;
   }
+  a#editButton {
+    padding: 6px 12px;
+    border-radius: 4px;
+    background-color: #f4f4f4;
+    color:#1A1D21;
+    font-family: Roboto-Regular;
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+}
+
+a#editButton:hover {
+    background-color: #c7ccd1;
+}
   
   div.msg > h1 {
     position: relative;
