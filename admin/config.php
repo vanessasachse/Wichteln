@@ -1,4 +1,5 @@
 <?php
+$DEBUG=1;
 $DBHOST='mariadb.docker';
 $DBUSER='xxxxxxxxx';
 $DBPASS='xxxxxxxxx';

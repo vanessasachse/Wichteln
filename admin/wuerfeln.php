@@ -2,6 +2,10 @@
 require 'config.php';
 require 'functions.php';
 error_reporting(E_ERROR | E_PARSE);
+if (php_sapi_name() != "cli" && !$DEBUG) {
+	echo "Debug Modus ist deaktiviert. Würfeln geht nur über CLI!";
+	exit();
+}
 $mysqli = new mysqli("$DBHOST", "$DBUSER", "$DBPASS", "$DBNAME");
 if ($mysqli->connect_errno) {
 	die('mysqli connection error: ' . $mysqli->connect_error);
